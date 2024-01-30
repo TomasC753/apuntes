@@ -25,6 +25,9 @@ Con la Programación Orientada a Objetos se buscaba resolver estas situaciones, 
 
 Se puede pensar una clase como un plano para construir casas. El plano especifica cómo se deben construir las casas, qué habitaciones tendrán, y cómo estarán conectadas. Cada casa construida según ese plano sería un objeto.
 
+![](https://miro.medium.com/v2/resize:fit:828/format:webp/1*d2crhvTjaWQzEyeF7GEElA.png)
+- Cuando construimos una casa el arquitecto diseña los planos (blueprints) que definen cómo debe ser construida la casa. A esta plantilla, en programación se la conocemos como clase.
+- A una casa construida a partir de la plantilla se la conoce como instancia de la clase.
 ```dart
 class Auto {
     // Propiedades
