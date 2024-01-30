@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkapuntes_dart=self.webpackChunkapuntes_dart||[]).push([[5635],{2590:a=>{a.exports=JSON.parse('{"label":"facebook","permalink":"/apuntes/blog/tags/facebook","allTagsPath":"/apuntes/blog/tags","count":1,"unlisted":false}')}}]);
