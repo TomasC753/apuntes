@@ -25,3 +25,13 @@ Las siguientes son acciones previas a la realización del diagrama de flujo:
 ## Simbología y significado
 El Instituto Nacional Estadounidense de Estándares (ANSI, por su siglas en inglés) estableció estándares para los diagramas de flujo y sus símbolos en los años 1960s. ​La Organización Internacional de Normalización (ISO, por sus siglas en inglés) adoptó los símbolos ANSI en 1970. El estándar actual, ISO 5807, fue revisado en 1985.
 
+|     |     |     |
+| --- | --- | --- |
+| ![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Flowchart_Line.svg/150px-Flowchart_Line.svg.png) | Línea de flujo (Flecha) | Muestra el orden de operación de los procesos. Las flechas se agregan si el flujo no es el estándar de arriba hacia abajo, de izquierda a derecha |
+| ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Flowchart_Terminal.svg/150px-Flowchart_Terminal.svg.png) | Terminal | Indica el inicio o fin de un programa o subprocesos. Usualmente contienen la palabra "Inicio" o "Fin", o alguna otra frase señalando el inicio o fin de un proceso, como "presentar consulta" o "recibir producto" |
+| ![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Flowchart_Process.svg/150px-Flowchart_Process.svg.png) | Proceso | Representa un conjunto de operaciones que cambiar el valor, forma o ubicación de datos. |
+| ![](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Flowchart_Decision.svg/150px-Flowchart_Decision.svg.png) | Decisión | Muestra una operación condicional que determina cuál de los dos caminos tomará el programa.3​ La operación es comúnmente una pregunta de sí/no o una prueba de verdadero/falso |
+| ![](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Flowchart_IO.svg/150px-Flowchart_IO.svg.png) | Entrada | Indica el proceso de hacer entrar datos​ en la forma de ingresar datos. |
+| ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Flowchart_Document.svg/150px-Flowchart_Document.svg.png) | Salida | Indica el proceso de hacer salir datos, en la forma de mostrar resultados. |
+| ![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Flowchart_Connector.svg/75px-Flowchart_Connector.svg.png) | Conector de pagina | Pares de conectores etiquetados reemplazan líneas largas o confusas en la página del diagrama. |
+| ![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Off_page_connector.png/75px-Off_page_connector.png) | Conector fuera de pagina | Un conector etiqueta para usar cuando el objetivo es otra página. |
