@@ -380,4 +380,313 @@ En este ejemplo, `propiedadEstatica` es una propiedad estática de `MiClase`. Pu
 5. No pueden acceder a las variables de instancia ni usar la palabra clave `this`, ya que no están asociados a instancias particulares.
 6. Los métodos y propiedades estáticas son declarados utilizando la palabra clave `static` antes de su declaración.
 
-<!-- ## Ejemplo Practico -->
+## Ejemplo Practico
+
+### Descripción del Problema
+En el mundo de la ingeniería y las ciencias, la utilización de unidades de medida estandarizadas es esencial para garantizar la coherencia y la precisión en los cálculos. En este desafío, se busca implementar un sistema de unidades internacionales que incluya la capacidad de expresar medidas en diferentes prefijos de fracciones de base.
+
+### Unidades a Implementar
+1. **Longitud:** La unidad base será el **metro**. Debe ser posible expresar la longitud en metros, centímetros, milímetros, kilómetros, etc.
+2. **Volumen:** Las unidades a implementar serán el **litro** y el **metro cubico**. Debe ser posible expresar el volumen en litros, mililitros, decilitros, etc. De igual forma para el metro cubico.
+3. **Área:** La unidad base será el **metro cuadrado**. Debe ser posible expresar el área en metros cuadrados, centímetros cuadrados, kilómetros cuadrados, etc.
+
+### Prefijos de Fracciones de Base
+Se deben implementar los prefijos comunes para expresar fracciones de base, como kilo, hecto, deci, centi, mili, etc. Estos prefijos deben ser aplicables a las unidades de longitud, litro y área.
+
+### Solución del problema
+
+```bath title="Estructura de carpetas"
+├─ area
+|  └─ square_meter.dart
+├─ longitud
+|  └─ meter.dart
+├─ volumen
+|  ├─ cubic_meter.dart
+|  └─ liter.dart
+├─ international_unit.dart
+└─ unit.dart
+```
+
+```dart title="unit.dart"
+abstract class Unit {
+  final double value;
+  int get exp => 0;
+  String get symbol;
+
+  Unit(this.value);
+
+  Unit _createInstance(double value);
+
+  @override
+  bool operator ==(dynamic other) => other is Unit && other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+```
+
+```dart title="international_unit.dart"
+import 'dart:math';
+
+import 'package:unidades_de_medida/unit.dart';
+
+enum BaseFraction { mili, centi, deci, base, deca, hecta, kilo }
+
+Map<BaseFraction, String> baseFractionPrefix = {
+  BaseFraction.kilo: 'k',
+  BaseFraction.hecta: 'h',
+  BaseFraction.deca: 'da',
+  BaseFraction.base: '',
+  BaseFraction.deci: 'd',
+  BaseFraction.centi: 'c',
+  BaseFraction.mili: 'm',
+};
+
+abstract class InternationalUnit extends Unit {
+  InternationalUnit(double value) : super(value);
+
+  double valueIn(BaseFraction fraction) {
+    late double result;
+    switch (fraction) {
+      case BaseFraction.kilo:
+        result = value / (1000 * pow(10, this.exp));
+        break;
+      case BaseFraction.hecta:
+        result = value / (100 * pow(10, this.exp));
+        break;
+      case BaseFraction.deca:
+        result = value / (10 * pow(10, this.exp));
+        break;
+      case BaseFraction.base:
+        result = value;
+        break;
+      case BaseFraction.deci:
+        result = value * 10 * pow(10, this.exp);
+        break;
+      case BaseFraction.centi:
+        result = value * 100 * pow(10, this.exp);
+        break;
+      default:
+        result = value * 1000 * pow(10, this.exp);
+    }
+    return result;
+  }
+
+  static double calculateBase(double number, BaseFraction fraction) {
+    late double result;
+    switch (fraction) {
+      case BaseFraction.kilo:
+        result = number * 1000;
+        break;
+      case BaseFraction.hecta:
+        result = number * 100;
+        break;
+      case BaseFraction.deca:
+        result = number * 10;
+        break;
+      case BaseFraction.base:
+        result = number;
+        break;
+      case BaseFraction.deci:
+        result = number / 10;
+        break;
+      case BaseFraction.centi:
+        result = number / 100;
+        break;
+      default:
+        result = number / 1000;
+    }
+    return result;
+  }
+
+  @override
+  String toString() {
+    return '$value$symbol';
+  }
+
+  String expressIn(BaseFraction fraction) =>
+      '${valueIn(fraction)}${baseFractionPrefix[fraction]!}$symbol';
+}
+```
+
+```dart title="longitud/meter.dart"
+import 'package:unidades_de_medida/area/square_meter.dart';
+import 'package:unidades_de_medida/international_unit.dart';
+
+class Meter extends InternationalUnit {
+  Meter.kilometer(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.kilo));
+
+  Meter.hectometer(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.hecta));
+
+  Meter.decameter(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.deca));
+
+  Meter.decimeter(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.deci));
+
+  Meter.centimeter(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.centi));
+
+  Meter.millimeter(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.mili));
+
+  Meter(double medida) : super(medida);
+
+  @override
+  String symbol = 'm';
+
+  Meter operator +(Meter other) => Meter(value + other.value);
+  Meter operator -(Meter other) => Meter(value - other.value);
+
+  dynamic operator *(dynamic other) {
+    if (other is num) {
+      return Meter(value * other);
+    }
+    if (other is Meter) {
+      return SquareMeter(value * other.value);
+    }
+    throw "[ERROR] tipo de dato no soportado";
+  }
+
+  Meter operator /(dynamic other) => Meter(value / other);
+}
+```
+
+```dart title="area/square_meter.dart"
+import 'package:unidades_de_medida/international_unit.dart';
+import 'package:unidades_de_medida/longitud/meter.dart';
+import 'package:unidades_de_medida/volumen/cubic_meter.dart';
+
+class SquareMeter extends InternationalUnit {
+  @override
+  String symbol = 'm²';
+
+  @override
+  int exp = 2;
+
+  SquareMeter(super.value);
+
+  SquareMeter.squareKilometer(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.kilo));
+
+  SquareMeter.squareHectometer(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.hecta));
+
+  SquareMeter.squareDecameter(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.deca));
+
+  SquareMeter.squareDecimeter(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.deci));
+
+  SquareMeter.squareCentimeter(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.centi));
+
+  SquareMeter.squareMillimeter(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.mili));
+
+  SquareMeter operator +(SquareMeter other) => SquareMeter(value + other.value);
+  SquareMeter operator -(SquareMeter other) => SquareMeter(value - other.value);
+
+  dynamic operator *(dynamic other) {
+    if (other is num) {
+      return SquareMeter(value * other);
+    }
+    if (other is Meter) {
+      return CubicMeter(value * other.value);
+    }
+    throw "[ERROR] tipo de dato no soportado";
+  }
+}
+```
+
+```dart title="volumen/cubic_meter.dart"
+import 'package:unidades_de_medida/international_unit.dart';
+
+import 'liter.dart';
+
+class CubicMeter extends InternationalUnit {
+  CubicMeter.cubicKilometer(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.kilo));
+
+  CubicMeter.cubicHectometer(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.hecta));
+
+  CubicMeter.cubicDecameter(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.deca));
+
+  CubicMeter.cubicDecimeter(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.deci));
+
+  CubicMeter.cubicCentimeter(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.centi));
+
+  CubicMeter.cubicMillimeter(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.mili));
+
+  CubicMeter(super.value);
+
+  @override
+  String symbol = 'm³';
+
+  @override
+  int exp = 3;
+
+  CubicMeter operator +(CubicMeter other) => CubicMeter(value + other.value);
+  CubicMeter operator -(CubicMeter other) => CubicMeter(value - other.value);
+
+  Liter toLiter() {
+    return Liter(value * 1000);
+  }
+}
+```
+
+```dart title="volumen/liter.dart"
+import 'package:unidades_de_medida/international_unit.dart';
+
+class Liter extends InternationalUnit {
+  @override
+  String symbol = 'l';
+
+  Liter.kiloliter(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.kilo));
+
+  Liter.hectoliter(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.hecta));
+
+  Liter.decaliter(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.deca));
+
+  Liter.deciliter(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.deci));
+
+  Liter.centiliter(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.centi));
+
+  Liter.milliliter(double medida)
+      : super(InternationalUnit.calculateBase(medida, BaseFraction.mili));
+
+  Liter(super.value);
+
+  Liter operator +(Liter other) => Liter(value + other.value);
+  Liter operator -(Liter other) => Liter(value - other.value);
+}
+```
+
+### Modo de uso
+```dart
+void main() {
+  print(Meter.kilometer(10)); // Imprime "10000.0km"
+  print(Meter.millimeter(50).expressIn(BaseFraction.centi)); // Imprime "5.0cm"
+  print(Meter.kilometer(1) == Meter(1000)); // Imprime true
+  print(Meter(50) * Meter(20)); // Imprime "1000.0m²"
+
+  SquareMeter testArea = Meter.centimeter(50) * Meter.centimeter(50);
+  print(testArea.expressIn(BaseFraction.base)); // Imprime "0.25m²"
+
+  CubicMeter testVolume = Meter.centimeter(15) * Meter.centimeter(20) * Meter.centimeter(30);
+  print(testVolume.toLiter().expressIn(BaseFraction.centi)); // Imprime "900.0cl"
+}
+```
