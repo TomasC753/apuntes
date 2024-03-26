@@ -81,5 +81,5 @@ const config = {
 Finalmente, para implementar el sitio en GitHub Pages, debes ejecutar el siguiente comando en **git bash**:
 
 ```bash
-GIT_USER=<Nombre_de_usuario_de_github> npm deploy
+GIT_USER=<Nombre_de_usuario_de_github> npm run deploy
 ```
