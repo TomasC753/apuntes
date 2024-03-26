@@ -10,7 +10,7 @@ import rehypeKatex from 'rehype-katex';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Dart desde cero',
+  title: 'Apuntes',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
 

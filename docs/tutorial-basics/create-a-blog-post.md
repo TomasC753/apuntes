@@ -2,13 +2,19 @@
 sidebar_position: 3
 ---
 
-# Create a Blog Post
+# Crear un Blog Post
 
-Docusaurus creates a **page for each blog post**, but also a **blog index page**, a **tag system**, an **RSS** feed...
+Un **blog​** o **bitácora​** es un sitio web que incluye, a modo de diario personal de su autor o autores, contenidos de su interés, que suelen estar actualizados con frecuencia y a menudo son comentados por los lectores.
 
-## Create your first Post
+Sirve como publicación en línea de historias con una periodicidad muy alta, que son presentadas en orden cronológico inverso, es decir, lo más reciente que se ha publicado es lo primero que aparece en la pantalla. Antes era frecuente que los blogs mostraran una lista de enlaces a otros blogs u otras páginas para ampliar información, citar fuentes o hacer notar que se continúa con un tema que empezó otro blog.​
 
-Create a file at `blog/2021-02-28-greetings.md`:
+---
+
+Docusaurus crea una **página para cada entrada del blog**, pero también **una página de índice del blog**, un **sistema de etiquetas**, un feed **RSS**...
+
+## Crea tu primer post
+
+Crea un archivo en `blog/2021-02-28-greetings.md`:
 
 ```md title="blog/2021-02-28-greetings.md"
 ---
@@ -31,4 +37,4 @@ Congratulations, you have made your first post!
 Feel free to play around and edit this post as much you like.
 ```
 
-A new blog post is now available at [http://localhost:3000/blog/greetings](http://localhost:3000/blog/greetings).
+Una nueva publicación de blog ya está disponible en [http://localhost:3000/blog/greetings](http://localhost:3000/blog/greetings).
