@@ -4,6 +4,20 @@ sidebar_position: 2
 
 # Fundamentos de análisis de sistemas y desarrollo del software
 
+**Información**: Conjunto de datos organizados, ya sean números, letras, imágenes, sonidos, etc., que dan el significado a algo.
+
+Para dar significado a dicho conjunto de datos existen ciertos componentes:
+- **Componente físicos:** Está formado por todos los aparatos electrónicos y mecánicos que realizan los cálculos y el manejo de la información.
+- **Componente lógico:** Se trata de información que se ingresa de las aplicaciones, y que los componentes físicos trabajan para lograr emitir una salida, ya sea imagen, datos, etc.
+- **Componente humano:** Está compuesto tanto por los usuarios que trabajan con los equipos como por aquellos que elaboran las aplicaciones.
+
+Estos procesos se realizan mediados por un ordenador o PC, que esta compuesto por dos partes bien diferenciadas: **Hardware** y **Software**.
+
+Una PC acepta datos a través de medios externos de entrada y que una vez ingresados debe procesarlos en forma automática, utilizando software o aplicaciones para luego mostrar ese resultado por algún medio de salida.
+
+Es proceso es lo que conocemos como **sistema informático**, "Un conjunto  de elementos que hace posible el tratamiento automático de la información".
+
+
 ## Los sistemas y las tecnologías de la información en las empresas
 
 ### ¿Que es un sistema?
@@ -43,7 +57,7 @@ flowchart LR
 ### Teoría general de sistemas. Sistemas de información
 “**La Teoría General de Sistemas** (**TGS**) fue concebida por **Ludwig von Bertalanffy** en la década de 1940 con el fin de proporcionar un marco teórico y práctico a las ciencias naturales y sociales” ([Román, 2011](https://bit.ly/36bJDfy).). Se basa en el análisis del estudio interdisciplinario de los sistemas en general, tomados de manera global, para estudiar cómo interactúan, cómo están constituidos, cómo se comunican entre sus propios elementos y con los de otros sistemas.
 
-El **objetivo de la teoría de sistemas** es el descubrimiento sistemático de las dinámicas, restricciones y condiciones de un sistema, así como de principios (propósitos, medidas, métodos, herramientas, etc.) que puedan ser discernidos y aplicados a los sistemas en cualquier nivel de anidación y en cualquier campo, con el objetivo de lograr una equifinalidad optimizada. ([Teoría de sistemas, Wikipedia](https://es.wikipedia.org/wiki/Teor%C3%ADa_de_sistemas))
+<!-- El **objetivo de la teoría de sistemas** es el descubrimiento sistemático de las dinámicas, restricciones y condiciones de un sistema, así como de principios (propósitos, medidas, métodos, herramientas, etc.) que puedan ser discernidos y aplicados a los sistemas en cualquier nivel de anidación y en cualquier campo, con el objetivo de lograr una equifinalidad optimizada. ([Teoría de sistemas, Wikipedia](https://es.wikipedia.org/wiki/Teor%C3%ADa_de_sistemas)) -->
 
 Para aplicar los conceptos fundamentales de la teoría, se deben definir marcos de referencia, los cuales vamos a describir a continuación.
 > ##### Primer Marco de referencia
@@ -141,7 +155,8 @@ En este sentido, el analista de sistemas, dentro de una organización, puede act
 - Evolución permanente.
 
 <center>
-![Habilidades de un analista en sistemas](https://th.bing.com/th/id/R.b7935be29dc41160611e2fb940d0a6a3?rik=n2rSNFdWs33qCg&pid=ImgRaw&r=0)
+<!-- ![Habilidades de un analista en sistemas](https://th.bing.com/th/id/R.b7935be29dc41160611e2fb940d0a6a3?rik=n2rSNFdWs33qCg&pid=ImgRaw&r=0) -->
+<img src="https://th.bing.com/th/id/R.b7935be29dc41160611e2fb940d0a6a3?rik=n2rSNFdWs33qCg&pid=ImgRaw&r=0" height="400" />
 </center>
 
 #### Un perfil adecuado y algunas características
@@ -196,7 +211,7 @@ Un **proyecto de software** es una tarea bien definida, en un momento concreto e
 Todos los proyectos de desarrollo de software juegan con las limitaciones del entorno, por lo que traen con ellos riesgos determinados y por eso es esencial gestionarlos de manera eficiente. Existen tres limitaciones principales para estos proyectos: **tiempo**, **costo** y **calidad**.
 
 <center>
-![limitantes-del-proyecto](../../assets/limitantes-del-proyecto.png)
+<img src={require("../../assets/limitantes-del-proyecto.png").default} height="200" />
 </center>
 
 Como se muestra en la imagen, una parte importante del proyecto consiste en “entregar un producto de calidad, manteniendo el costo dentro de las limitaciones del presupuesto del cliente, en el menor tiempo posible”  [(Tutoriales Point, s.f.)](https://bit.ly/3w2KVV5)
