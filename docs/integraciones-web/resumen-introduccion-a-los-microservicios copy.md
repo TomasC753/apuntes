@@ -102,3 +102,122 @@ xmlns:typ1="http://www.mycompany.com/salesorder/SalesOrderSearch...">
     </soapenv:Body>
 </soapenv:Envelope>
 ```
+En ese ejemplo podemos observar un modelo de solicitud XML diferenciando tres estructuras básicas:
+- **Envelope:** raíz de la estructura XML, identifica al mensaje SOAP como tal y por ende es obligatoria
+- **Header:** aquí se incorpora información referida a cómo debe ser procesado el mensaje. También pueden ir incluidas validaciones de seguridad.
+- **Body:** se incluye toda información necesaria para la llamada o respuesta del mensaje. En caso de faltar un campo obligatorio o incluir información no permitida dentro del mismo, se devolverá un error, pero sin detalles del mismo, por lo cual se debe hacer un **troubleshooting manual**, campo a campo para descubrir donde está.
+
+#### Troubleshooting
+El proceso de solución de problemas (Troubleshooting) en el contexto de envío de llamadas en formato XML implica identificar y corregir los errores que puedan surgir durante la transmisión. Cuando se recibe un error en respuesta a una llamada XML, el código de error no proporciona detalles específicos sobre la naturaleza del problema. Por lo tanto, es necesario revisar minuciosamente cada campo para asegurarse de que la información enviada sea correcta.
+
+Para verificar la precisión de la información enviada, es fundamental consultar la documentación correspondiente para comprender las opciones disponibles en los campos habilitados del XML. Por ejemplo, un error puede ocurrir si se excede el límite de caracteres permitidos para un campo específico, como en el caso de direcciones que exceden el límite establecido.
+
+Además, pueden surgir errores debido a caracteres inválidos o no admitidos por el XML, como caracteres especiales. Otro escenario común es el error de autenticación, que puede ocurrir si las credenciales proporcionadas son incorrectas.
+
+Es importante destacar que pueden existir diversos tipos de errores, incluso varios dentro del mismo XML. La resolución de problemas requiere habilidad para identificar estos errores basándose en la documentación y el contenido del XML con errores. Una vez identificados, los problemas deben ser corregidos manualmente antes de volver a enviar la llamada XML para su procesamiento correcto.
+
+#### SOAPUI
+**SOAPUI** es una herramienta de prueba de servicios web ampliamente utilizada para probar, desarrollar y simular servicios web SOAP y RESTful.
+1. Interfaz Gráfica de Usuario (GUI) Amigable: SOAPUI proporciona una interfaz gráfica de usuario intuitiva que facilita la creación, edición y ejecución de pruebas de servicios web.
+2. **Soporte para Protocolos:** Soporta tanto el protocolo SOAP (Simple Object Access Protocol) como REST (Representational State Transfer), lo que permite probar una variedad de servicios web.
+3. **Creación de Pruebas Funcionales:** Permite a los usuarios crear pruebas funcionales mediante la creación de solicitudes HTTP o SOAP específicas y la definición de las aserciones para verificar las respuestas.
+4. **Pruebas de Carga y Rendimiento:** SOAPUI permite la creación de pruebas de carga y rendimiento para evaluar el rendimiento de los servicios web bajo diferentes cargas y condiciones.
+5. **Automatización de Pruebas:** Ofrece capacidades de automatización de pruebas, lo que permite ejecutar pruebas de forma automatizada como parte de un proceso de integración continua o de entrega continua (CI/CD).
+6. **Soporte para Scripting:** Permite la escritura de scripts en Groovy para personalizar y extender las pruebas según sea necesario.
+7. **Entorno de Pruebas Completo:** SOAPUI proporciona un entorno completo para el desarrollo y la ejecución de pruebas de servicios web, incluyendo la capacidad de gestionar entornos de prueba y datos de prueba.
+8. **Soporte para Diversas Autenticaciones y Seguridad:** Ofrece soporte para varios mecanismos de autenticación y seguridad, como Basic Auth, WS-Security, OAuth, etc.
+
+#### JSON
+
+Un **JSON** es una cadena cuyo formato recuerda al de los **objetos literales JavaScript**, popularizado por **Douglas Crockford** a mediados de los años 2000. Es posible incluir los mismos tipos de datos básicos dentro de un JSON que en un objeto estándar de Javascript (cadenas, números, arreglos, booleanos, y otros literales de objeto).
+
+```json
+[
+    {
+        "name": "Molecule Man",
+        "age": 29,
+        "secretIdentify": "Dan Jukes",
+        "Powers": [
+            "Radiation resistance",
+            "Turning tiny",
+            "Radiation blast"
+        ]
+    },
+    {
+        "name": "Madame Uppercut",
+        "age": 39,
+        "secretIdentify": "Jane Wilson",
+        "Powers": [
+            "Million tonne punch",
+            "Damage resistance",
+            "Superhuman reflexes"
+        ]
+    }
+]
+```
+- Un objeto en **JSON** se encuentra definido por las llaves "{ }" y contiene campos que definen los **atributos** de ese **objeto**.
+- Un **array** se encuentra definido por los corchetes "[ ]" y pueden contener 0, 1 o más **objetos** dentro. Cada uno de estos **objetos** será identificable empezando a contar desde el número 0 (cero)
+
+### Tema 4. Estructura de JSON
+
+JSON es un formato de intercambio de datos ligero diseñado para ser fácilmente leído y escrito por humanos, así como fácilmente interpretado y generado por máquinas. Se basa en un subconjunto del lenguaje de programación **JavaScript Standard ECMA-262** para definir las propiedades y atributos de los objetos.
+
+JSON es un formato de texto independiente del lenguaje, lo que significa que puede ser utilizado con cualquier lenguaje de programación. Sin embargo, sigue convenciones ampliamente conocidas por los programadores de lenguajes de la familia C (C, C++, C#, Java, Javascript, Perl, Python, etc).
+
+JSON está compuesto por dos estructuras básicas:
+- Una colección de pares de **clave/valor**, conocida en varios lenguajes como objeto, registro, estructura o lista de claves.
+- Una lista ordenada de valores, que se implementa comúnmente como arreglos, vectores, listas o secuencias en la mayoría de los lenguajes de programación.
+
+Las estructuras básicas de JSON son compatibles con prácticamente todos los lenguajes de programación, lo que lo convierte en un formato ideal para el intercambio de datos entre diferentes sistemas y plataformas.
+
+#### Tipos de valores
+
+##### Array
+Un array es una colección ordenada de valores. Está rodeado de corchetes y cada valor está separado por una coma.
+
+##### Objetos
+Un objeto contiene una clave y un valor. Hay Dos puntos después de cada clave y una coma después de cada valor. El objeto como valor debe seguir la misma regla que un objeto común.
+
+```json title="ejemplo"
+{
+    "amigos": {
+        "nombre": "Pablo",
+        "apellido": "Fernandez"
+    }
+}
+```
+
+**String:** Es una secuencia establecida de cero o mas caracteres. Está encerrado entre dos comillas dobles.
+
+**Numero:** El numero en JSON debe ser un entero o un punto flotante como `{"Edad": 30}`.
+
+**Booleano:** Puedes usar verdadero o falso como valor. Ejemplo `{"Casado": true}`.
+
+**Nulo:** Es para mostrar que no hay información. Ejemplo `{"Factor Sanguíneo": null}`.
+
+**Datos JSON almacenados:** Hay dos formas para almacenar datos JSON: Objeto y vector...
+
+```json title="Objeto"
+{
+    "nombre": "Pablo",
+    "apellido": "Fernandez",
+    "género": "masculino"
+}
+```
+
+```json title="Usando vectores" {5-7}
+{
+    "nombre": "Pablo",
+    "apellido": "Fernandez",
+    "género": "masculino",
+    "hobby": [
+        "Música", "Futbol", "Karate"
+    ]
+}
+```
+
+Lo que diferencia esto del método anterior es el cuarto par clave/valor. Hobby es la clave y hay varios valores [Musica, Futbol y Karate] entre corchetes, que representan un vector.
+
+Este proceso funciona utilizando lo que se denomina devoluciones de llamada (**callbacks**), que solicitarán un elemento específico del vector sin obtener un error “del mismo origen” (**same-origin**).
+
+Y, afortunadamente, un array también admite bucles, lo que te permite ejecutar comandos repetidos para buscar múltiples datos, haciendo que el proceso sea más rápido y efectivo.
