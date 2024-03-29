@@ -32,3 +32,30 @@ sidebar_position: 1
 - Tema 2. Cómo utilizar los microservicios
 - Tema 3. Características de los microservicios en distintos lenguajes 
 - Tema 4. Ejemplos y casos prácticos de microservicios
+
+### Modulo 3. UnitTest
+
+#### Unidad 1. Test Automático
+- Tema 1. Qué es y para qué sirve un test automatizado
+- Tema 2. Arquitecturas de pruebas automatizadas
+- Tema 3. Cuál es la principal razón para automatizar los testing
+- Tema 4. Ejemplos prácticos de herramientas para automatizar los testing
+
+#### Unidad 2. Pruebas unitarias
+- Tema 1. Qué son las pruebas unitarias
+- Tema 2. Diseño del test unitario
+- Tema 3. Frameworks de test unitarios
+- Tema 4. Ejemplos y casos prácticos de test unitarios
+
+### Modulo 4. Calidad y métricas en los testeos
+#### Unidad 1. Calidad de las Testeo
+- Tema 1. Qué es calidad de software en los testeos 
+- Tema 2. Aseguramiento de la calidad del producto
+- Tema 3. Cómo se construye un proceso de control de calidad
+- Tema 4. Distintas normas internacionales, que hablen de la calidad del software
+
+#### Unidad 2. Métricas en los Testeos
+- Tema 1. Qué son las métricas de calidad de software
+- Tema 2. Cuál es el objetivo de las métricas de calidad
+- Tema 3. Importancia de las métricas de testeo
+- Tema 4. Cómo se aplican las métricas de software
