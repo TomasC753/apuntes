@@ -155,7 +155,7 @@ Un **JSON** es una cadena cuyo formato recuerda al de los **objetos literales Ja
     }
 ]
 ```
-- Un objeto en **JSON** se encuentra definido por las llaves "{ }" y contiene campos que definen los **atributos** de ese **objeto**.
+- Un objeto en **JSON** se encuentra definido por las llaves "\{ \}" y contiene campos que definen los **atributos** de ese **objeto**.
 - Un **array** se encuentra definido por los corchetes "[ ]" y pueden contener 0, 1 o más **objetos** dentro. Cada uno de estos **objetos** será identificable empezando a contar desde el número 0 (cero)
 
 ### Tema 4. Estructura de JSON
@@ -221,3 +221,92 @@ Lo que diferencia esto del método anterior es el cuarto par clave/valor. Hobby 
 Este proceso funciona utilizando lo que se denomina devoluciones de llamada (**callbacks**), que solicitarán un elemento específico del vector sin obtener un error “del mismo origen” (**same-origin**).
 
 Y, afortunadamente, un array también admite bucles, lo que te permite ejecutar comandos repetidos para buscar múltiples datos, haciendo que el proceso sea más rápido y efectivo.
+
+## Unidad 2. Protocolos HTTP
+
+### Tema 1. 404 Titulo no encontrado
+
+En el protocolo **HTTP** intervienen dos partes, el servidor y el cliente quien es el que inicia la comunicación con el servidor y el mismo responde un texto con un encabezado (**header**) y un cuerpo (**body**) que determinan ciertos factores, como la información a enviarse y recibirse (en el **body**) y hacia dónde estamos enviándola, asi como nuestras credenciales, que nos identifican y dan acceso a ese servidor, también llamadas metadatos (en el **header**).
+
+#### URL
+Las **URL** (**Uniform Resource Locator**) sirven para identificar/localizar un recurso con el cual queremos operar. Tanto en API como en la web, las URL contienen el mismo formato.
+
+Las **URL**s tienen un formato común que consiste en un protocolo seguido por un dominio y una ruta que identifica el recurso específico. Por ejemplo, "http://www.servidor.com/clientes" indica que se está accediendo a la sección de clientes en el servidor.
+
+Dependiendo del tipo de API (**REST** o **SOAP**), la información devuelta puede estar en diferentes formatos. En el caso de las APIs **REST**, la información se devuelve comúnmente en formato **JSON**, mientras que en las APIs **SOAP** se devuelve en formato **XML**.
+
+Para consultar o manipular la información en una API REST, se utilizan los **métodos HTTP** disponibles, también conocidos como **request**. Estos métodos permiten realizar operaciones como obtener datos (**GET**), crear nuevos recursos (**POST**), actualizar recursos existentes (**PUT/PATCH**), o eliminar recursos (**DELETE**).
+
+### Tema 2. Peticiones HTTP via API
+
+Existe una gran cantidad de verbos o request, los mas usados son los siguiente:
+
+- **GET:** Se utiliza para obtener información desde el recurso API y solo es una solicitud de lectura.
+- **POST:** Se utiliza para crear un nuevo recurso dentro de una API. El cuerpo del mensaje (body) de solicitud proporciona los detalles del nuevo recurso basándose en la estructura que se haya definido en la arquitectura de la API para ese tipo de elementos en particular.
+- **PUT:** Crea o sustituye un recurso, aunque normalmente se lo utiliza para actualizar algún registro en particular. Se debe enviar toda la estructura del body que está definida por la API y enviar allí también el valor nuevo que queremos actualizar.
+- **PATCH:** Realiza una actualización parcial de un recurso. El body de la solicitud especifica el conjunto de cambios que se aplican al recurso.
+- **DELETE:** Se borra el registro solicitado, normalmente se  detalla en la URL del request.
+
+Las principales diferencias entre POST y PUT son:
+1. El método PUT es **idempotente** en HTTP, lo que significa que producirá el mismo resultado si se ejecuta varias veces.
+2. El método POST no es **idempotente**, ya que si se ejecuta varias veces se estarían creando varios elementos.
+3. El método POST se utiliza para crear una nueva entidad.
+4. El método PUT se utiliza para actualizar (reemplazar) una entidad existente. Se debe tener presente que, si en la trama se envía solo una parte de los valores a actualizar, los demás campos se setearán a null o vacío.
+
+#### ¿Cuando utilizar los métodos PUT y POST en REST?
+
+| POST | PUT |
+| --- | ---- |
+| Para crear nuevos recursos | Para actualizar los recursos existentes |
+| Cuando se necesita que el servidor controle la generación de URL de los recursos | Cuando se conozca el "Id" del Objeto |
+
+### Tema 3. Códigos de respuesta
+
+- 1xx Respuestas informativas: Esta respuesta significa que el servidor ha recibido los encabezados de la petición.
+  - **101 Switching Protocols:** El servidor acepta el cambio de protocolo propuesto por el navegador
+  - **102 Processing:** El servidor aun esta procesando la petición del navegador.
+- 2xx Peticiones correctas: Indica que la petición fue recibida correctamente, entendida y aceptada.
+  - **200 OK:** Respuesta estándar para peticiones correctas.
+  - **201 Created:** La petición ha sido completada y ha resultado en la creación de un nuevo recurso.
+  - **202 Accepted:** La petición ha sido aceptada para procesamiento, pero este no ha sido completado.
+  - **204 No Content:** La petición ha sido completado con éxito, pero su respuesta no tiene contenido.
+- 3xx Redirecciones: El cliente tiene que tomar una acción adicional para completar la petición.
+  - **301 Moved Permanently:** Esta y todas las peticiones futuras deberán ser dirigidas a la URL dada.
+  - **302 Found:** Este es el código de redirección mas popular.
+  - **307 Temporary Redirect:** Se trata de una redirección que debería haber sido hecha con otra URI, pero aun puede ser procesado por la URI proporcionada.
+  - **308 Permanent Redirect:** El recurso solicitado por el navegador se encuentra en otro lugar y este cambio es permanente.
+- 4xx Errores del cliente:  Para casos en los que el cliente parece haber errado un petición.
+  - **400 Bad Request:** el servidor no procesará la solicitud, porque no puede o no debe, debido a algo que es percibido como un error del cliente (por ejemplo, solicitud malformada, sintaxis errónea, etc.). La solicitud contiene sintaxis errónea y no debería repetirse.
+  - **401 Authorization Required:** similar al 403 Forbidden, pero específicamente para su uso cuando la autenticación es posible, pero ha fallado o aún no ha sido provista. Vea autenticación HTTP básica y digest access authentication.
+  - **403 Forbidden:** la solicitud fue legal, pero el servidor se rehúsa a responderla, dado que el cliente no tiene los privilegios para realizarla. En contraste con una respuesta 401 No autorizado, autenticarse previamente no va a cambiar la respuesta.
+  - **404 Not Found:** recurso no encontrado. Se utiliza cuando el servidor web no encuentra la página o recurso solicitado.
+  - **405 Method Not Allowed:** una petición fue hecha a una URI utilizando un método de solicitud no soportado por dicha URI. Por ejemplo, cuando se utiliza GET en un formulario que requiere que los datos sean presentados vía POST; o cuando se utiliza PUT en un recurso de solo lectura.
+  - **408 Request Timeout:** el cliente falló al continuar la petición, excepto durante la ejecución de videos Adobe Flash cuando solo significa que el usuario cerró la ventana de video o se movió a otro.
+  - **409 Conflict:** indica que la solicitud no pudo ser procesada debido a un conflicto con el estado actual del recurso que esta identifica.
+  - **410 Gone:** indica que el recurso solicitado ya no está disponible y no lo estará de nuevo. Debería ser utilizado cuando un recurso ha sido quitado de forma permanente.
+  - **414 URI Too Long:** la URI de la petición del navegador es demasiado grande y por ese motivo el servidor no la procesa.
+  - **428 Precondition Required:** el servidor requiere que la petición del navegador sea condicional (este tipo de peticiones evitan los problemas producidos al modificar con PUT un recurso que ha sido modificado por otra parte).
+  - **429 Too Many Requests:** hay muchas conexiones desde esta dirección de internet.
+  - **431 Request Header Fields Too Large:** el servidor no puede procesar la petición, porque una de las cabeceras de la petición es demasiado grande. Este error también se produce cuando la suma del tamaño de todas las peticiones es demasiado grande.
+- 5xx Errores del servidor: Indica casos en los cuales el servidor tiene registrado, aún antes de servir la solicitud, que esta errado o es incapaz de ejecutar la petición
+  - **500 Internal Server Error:** es un código comúnmente emitido por aplicaciones empotradas en servidores web, las cuales que generan contenido dinámicamente, por ejemplo, aplicaciones montadas en IIS o Tomcat, cuando se encuentran con situaciones de error ajenas a la naturaleza del servidor web.
+  - **502 Bad Gateway:** el servidor está actuando de proxy o gateway, y ha recibido una respuesta inválida del otro servidor, por lo que no puede responder adecuadamente a la petición del navegador.
+  - **503 Service Temporarily Unavailable:** el servidor no puede responder a la petición del navegador porque está congestionado o está realizando tareas de mantenimiento.
+  - **504 Gateway Timeout:** el servidor está actuando de proxy o gateway, y no ha recibido a tiempo una respuesta del otro servidor, por lo que no puede responder adecuadamente a la petición del navegador.
+
+Estos códigos de estado ayudan a hacer el troubleshooting necesario para detectar si todo va de acuerdo con lo esperado o si existe algún inconveniente y de donde proviene.
+
+### Tema 4. Troubleshooting básico
+El **Troubleshooting** Se refiere al proceso de identificar, diagnosticar y resolver problemas en un sistema o proceso, en el caso de las APIs, esto implica detectar y solucionar errores en las solicitudes o respuestas.
+
+Para hacer un troubleshooting básico se pueden tener en cuenta las siguientes cuestiones:
+1. ¿Es nuestro código de autorización válido y esta correctamente escrito?
+2. ¿La URL esta bien escrita?
+3. Si la URL cuenta con variables, ¿estas no fueron modificadas?
+4. ¿Estamos usando el método correcto para la API a la que intentamos conectarnos?
+5. ¿Tenemos problemas de conectividad?
+6. ¿El protocolo de la URL está bien escrito?
+7. Si estamos enviando una query en nuestra URL (identificable por el signo ‘=?’ en la URL), ¿está bien escrita?
+8. Si estamos enviando una query con una búsqueda por fecha, ¿el formato de la fecha está bien escrito?. El formato en JSON es de **AAAA-MM-DDTHH:MM:SS.ZZHH**, donde ZZHH corresponde a zona horaria y se escribe con 3 números y una letra
+9. Si estamos utilizando una solicitud para enviar información (PUT, POST, PATCH), ¿la estructura del JSON en el cuerpo del mensaje se encuentra correctamente escrita? ¿Es la estructura que el servidor está esperando?
+10. Si estamos enviando información en el body y dicho tipo de dato es un string, ¿estamos enviando algún carácter especial que puede no ser válido?
