@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="es" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-gestion-de-la-configuracion/resumen-de-modelos-de-sistemas-distribuidos" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.1.1">
+<title data-rh="true">Resumen de Modelos de sistemas distribuidos | Apuntes</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://TomasC753.github.io/apuntes/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://TomasC753.github.io/apuntes/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://TomasC753.github.io/apuntes/docs/gestion-de-la-configuracion/resumen-de-modelos-de-sistemas-distribuidos"><meta data-rh="true" property="og:locale" content="es"><meta data-rh="true" name="docusaurus_locale" content="es"><meta data-rh="true" name="docsearch:language" content="es"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Resumen de Modelos de sistemas distribuidos | Apuntes"><meta data-rh="true" name="description" content="Introducción a distribución de servicios"><meta data-rh="true" property="og:description" content="Introducción a distribución de servicios"><link data-rh="true" rel="icon" href="/apuntes/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://TomasC753.github.io/apuntes/docs/gestion-de-la-configuracion/resumen-de-modelos-de-sistemas-distribuidos"><link data-rh="true" rel="alternate" href="https://TomasC753.github.io/apuntes/docs/gestion-de-la-configuracion/resumen-de-modelos-de-sistemas-distribuidos" hreflang="es"><link data-rh="true" rel="alternate" href="https://TomasC753.github.io/apuntes/docs/gestion-de-la-configuracion/resumen-de-modelos-de-sistemas-distribuidos" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/apuntes/blog/rss.xml" title="Apuntes RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/apuntes/blog/atom.xml" title="Apuntes Atom Feed">
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/apuntes/assets/css/styles.3c9760c5.css">
+<script src="/apuntes/assets/js/runtime~main.52b3405f.js" defer="defer"></script>
+<script src="/apuntes/assets/js/main.cf7d7b30.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Saltar al contenido principal"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Saltar al contenido principal</a></div><nav aria-label="Principal" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Alternar barra lateral" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/apuntes/"><div class="navbar__logo"><img src="/apuntes/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/apuntes/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Mis Apuntes</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/apuntes/docs/intro">Apuntes</a><a class="navbar__item navbar__link" href="/apuntes/blog">Blog</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/facebook/docusaurus" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-label="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Volver al principio" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs barra lateral" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/apuntes/docs/intro">Docusaurus Introducción</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/apuntes/docs/category/docusaurus---básico">Docusaurus - Básico</a><button aria-label="Expand sidebar category &#x27;Docusaurus - Básico&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/apuntes/docs/category/introducción-a-programación">Introducción a Programación</a><button aria-label="Expand sidebar category &#x27;Introducción a Programación&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/apuntes/docs/category/paradigmas-de-la-programación">Paradigmas de la Programación</a><button aria-label="Expand sidebar category &#x27;Paradigmas de la Programación&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" aria-expanded="true" href="/apuntes/docs/category/gestión-de-la-configuración">Gestión de la Configuración</a><button aria-label="Collapse sidebar category &#x27;Gestión de la Configuración&#x27;" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/apuntes/docs/gestion-de-la-configuracion/programa">Programa</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/apuntes/docs/gestion-de-la-configuracion/resumen-de-software-configuration-management">Resumen de Software Configuration Management</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/apuntes/docs/gestion-de-la-configuracion/resumen-de-modelos-de-sistemas-distribuidos">Resumen de Modelos de sistemas distribuidos</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/apuntes/docs/gestion-de-la-configuracion/resumen-de-testing">Resumen de Testing</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/apuntes/docs/gestion-de-la-configuracion/resumen-de-calidad-y-metricas-en-los-testeos">Resumen de Calidad y métricas en los testeos</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/apuntes/docs/category/diseño-de-sistemas-de-información">Diseño de sistemas de información</a><button aria-label="Expand sidebar category &#x27;Diseño de sistemas de información&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/apuntes/docs/category/integraciones-web">Integraciones Web</a><button aria-label="Expand sidebar category &#x27;Integraciones Web&#x27;" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Página de Inicio" class="breadcrumbs__link" href="/apuntes/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/apuntes/docs/category/gestión-de-la-configuración"><span itemprop="name">Gestión de la Configuración</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Resumen de Modelos de sistemas distribuidos</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">En esta página</button></div><div class="theme-doc-markdown markdown"><h1>Resumen de Modelos de sistemas distribuidos</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introducción-a-distribución-de-servicios">Introducción a distribución de servicios<a href="#introducción-a-distribución-de-servicios" class="hash-link" aria-label="Enlace directo al Introducción a distribución de servicios" title="Enlace directo al Introducción a distribución de servicios">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="qué-es-este-tipo-de-modelo">¿Qué es este tipo de modelo?<a href="#qué-es-este-tipo-de-modelo" class="hash-link" aria-label="Enlace directo al ¿Qué es este tipo de modelo?" title="Enlace directo al ¿Qué es este tipo de modelo?">​</a></h3>
+<p>Los sistemas distribuidos son aquellos en los cuales los componentes de hardware y de software están ubicados en computadoras de una red y en los cuales las acciones se comunican y coordinan solamente por medio de mensajes.</p>
+<p><strong>Características</strong></p>
+<ul>
+<li>Colección de elementos de computación autónomos.<!-- -->
+<ul>
+<li>Constan de toda clase de nodos, desde computadoras de alto rendimiento a pequeños dispositivos.</li>
+<li>Se programan para alcanzar objetivos comunes, gracias al intercambio de mensajes entre ellos.</li>
+<li>Como consecuencia, no hay un reloj común</li>
+</ul>
+</li>
+<li>Sistema coherente único. Transparencia.<!-- -->
+<ul>
+<li>Vista de sistema único a transparente al usuario fina<!-- -->
+<ul>
+<li>No se debería saber en qué nodo está ejecutando una tarea</li>
+<li>No debería importar dónde se almacenen los datos</li>
+<li>No debería importar si el sistema réplica datos para mejorar el rendimiento.</li>
+</ul>
+</li>
+<li>Conjunto de procesadores conectados por una red.<!-- -->
+<ul>
+<li>Sin memoria compartida.</li>
+<li>Sistema débilmente acoplado.</li>
+</ul>
+</li>
+<li>No existe un reloj común.</li>
+<li>Dispositivos de E/S asociados a cada procesador.</li>
+<li>Fallos independientes de componentes del SD.</li>
+<li>Carácter heterogéneo.</li>
+</ul>
+</li>
+<li>Middleware<!-- -->
+<ul>
+<li>Los SD se organizan como una capa de software que es lógicamente separada entre una capa de alto nivel que consta de usuarios y aplicaciones y una capa subyacente formada por sistemas operativos y recursos básicos de comunicación.</li>
+<li>Soporte a computadoras y redes heterogéneas.</li>
+<li>Vista de un sistema único.</li>
+<li>Un middleware a un SD es lo mismo que un SO a un computador: un gestor de recursos.</li>
+<li>Para que sus aplicaciones compartan y desplieguen los recursos a través de una red.</li>
+</ul>
+</li>
+<li>Otros servicios:<!-- -->
+<ul>
+<li>Comunicación entre aplicaciones.</li>
+<li>Servicios de seguridad.</li>
+<li>Servicios de contabilidad.</li>
+<li>Enmascaramiento y recuperación de errores.</li>
+</ul>
+</li>
+</ul>
+<!-- -->
+<br>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Un <strong>middleware</strong> (En sistemas distribuidos) es un software que facilita la comunicación y la integración entre diferentes aplicaciones, componentes y recursos en un sistema distribuido.</p></div></div>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Un <strong>middleware</strong> en el desarrollo de una aplicación en la gestión de rutas es un software que se encarga de interceptar y procesar las peticiones <strong>HTTP</strong> que llegan a la aplicación, y de enviar las respuestas adecuadas según la lógica de negocio. El <strong>middleware</strong> puede realizar diferentes funciones, como verificar la <strong>autenticación</strong> y autorización del usuario, <strong>validar los datos</strong> de entrada, <strong>aplicar reglas de negocio</strong>, <strong>manejar errores</strong>, <strong>registrar eventos</strong>, etc.</p></div></div>
+<br>
+<table><thead><tr><th>Ventajas</th><th>Desventajas</th></tr></thead><tbody><tr><td>• Economía: buena relación rendimiento/costo.</td><td>• Necesidad de un nuevo tipo de software mas complejo y cuyo modelo no esta estandarizado</td></tr><tr><td>• Avances en tecnología de microprocesadores y redes de área local.</td><td>• La red de interconexión produce nuevos problemas: Perdida de información y latencia</td></tr><tr><td>• Alto rendimiento: procesamiento paralelo.</td><td>• Seguridad y confidencialidad.</td></tr><tr><td>• Soporte de aplicaciones inherentemente distribuidas. Por ejemplo: empresa distribuida geográficamente.</td><td>• Definición alternativa de SD.</td></tr><tr><td>• Capacidad de crecimiento: escalabilidad.</td><td></td></tr><tr><td>• Capacidad de crecimiento: escalabilidad.</td><td></td></tr><tr><td>• Carácter abierto y heterogéneo.</td><td></td></tr></tbody></table>
+<p><strong>Objetivos</strong></p>
+<ul>
+<li>Transparencia<!-- -->
+<ul>
+<li>Ocultar qué procesos y recursos están físicamente distribuidos a través de múltiples computadoras.</li>
+<li>Un sistema es transparente si se presenta como una sola computadora.</li>
+</ul>
+</li>
+<li><strong>Rendimiento</strong>
+<ul>
+<li>Rendimiento para un servicio multi-usuario.</li>
+<li>Rendimiento para la ejecución paralela de aplicaciones.</li>
+<li>Factores: uso de esquemas caché.</li>
+<li>Intentar que muchos accesos se hagan localmente.<!-- -->
+<ul>
+<li>Usos de esquema de replicación.</li>
+<li>Reparto de carga entre componentes replicados.<!-- -->
+<ul>
+<li>En ambos casos: coste de mantener la coherencia.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Capacidad de crecimiento</strong>
+<ul>
+<li>Diseño de un SD debe evitar &quot;cuellos de botella&quot;.</li>
+<li>Estrategias:<!-- -->
+<ul>
+<li>Reparto de estructuras de datos entre varios nodos.</li>
+<li>Replicación y caché.</li>
+<li>Realización de parte del procesamiento en los nodos cliente</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Carácter abierto</strong>
+<ul>
+<li>SD abierto: servicios, protocolos, etc. Publicados y estándares.</li>
+<li>Facilita la interacción con otros sistemas abiertos.</li>
+<li>Posibilita la migración de aplicaciones desde otros SD abiertos.</li>
+</ul>
+</li>
+<li>Flexibilidad para cambiar y extender el SD.<!-- -->
+<ul>
+<li>Esconde heterogeneidad de HW, SO, lenguajes.</li>
+</ul>
+</li>
+<li><strong>Fiabilidad</strong>
+<ul>
+<li>Teóricamente: OR-lógico de sus componentes.</li>
+<li>Sin embargo, a veces: AND-lógico de varios componentes.</li>
+<li>Evitar componentes críticos (punto único de fallo).</li>
+<li>Uso de replicación activa / pasiva:<!-- -->
+<ul>
+<li>Mantenimiento de coherencia entre réplicas.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="tipos-de-sistemas">Tipos de sistemas<a href="#tipos-de-sistemas" class="hash-link" aria-label="Enlace directo al Tipos de sistemas" title="Enlace directo al Tipos de sistemas">​</a></h3>
+<p><strong>Tipos de arquitecturas</strong></p>
+<table><thead><tr><th>Arquitectura</th><th>Entidades</th><th>Descripción</th><th>Ventajas</th><th>Desventajas</th></tr></thead><tbody><tr><td>Cliente-Servidor</td><td>• Servidor<br>•Cliente</td><td>• Los clientes envían solicitudes al servidor para obtener recursos o servicios.<br> • El servidor gestiona recursos y responde a las solicitudes de los clientes.<br> • Comúnmente utilizado en aplicaciones web, servicios en la nube y bases de datos.</td><td>• Centralización facilita la gestión y seguridad de los recursos.<br> • Escalabilidad y control mejorados.<br> • Mayor estabilidad y disponibilidad del servicio.</td><td>• Puede haber cuellos de botella si el servidor se sobrecarga.<br> • Puede requerir un alto costo de infraestructura y mantenimiento.<br> • Puede tener problemas de escalabilidad si hay un aumento repentino en la demanda.</td></tr><tr><td>Editor-Subscriptor</td><td>• Editor<br>•Subscriptor</td><td>• Los editores crean y actualizan contenido que se distribuye a los subscriptores interesados.<br> • Los subscriptores reciben actualizaciones en función de sus intereses.<br> • Utilizado en sistemas de noticias, redes sociales y difusión de datos en tiempo real.</td><td>• Distribución eficiente de información personalizada a un público interesado.<br> • Escalabilidad para la difusión de contenido a gran escala.<br> • Reducción de la carga en los editores en comparación con un modelo Cliente-Servidor.</td><td>• Requiere una infraestructura más compleja para gestionar las suscripciones y distribuir contenido.<br> - Mayor complejidad en la lógica de suscripciones y actualizaciones.<br> • Puede tener problemas de privacidad si no se gestionan adecuadamente los datos del usuario.</td></tr><tr><td>Peer-to-peer (p2p)</td><td>• Pares</td><td>• Cada par (peer) puede actuar como cliente y servidor al mismo tiempo.<br> • Los pares colaboran directamente para compartir recursos o información sin un servidor central.<br> • Común en aplicaciones de intercambio de archivos, redes descentralizadas y criptomonedas.</td><td>• Descentralización y resistencia a la censura.<br> • Menor dependencia de un servidor central.<br> • Eficiente distribución de recursos en redes de pares.</td><td>• Puede haber problemas de confiabilidad debido a la variabilidad de la disponibilidad de los pares.<br> • La escalabilidad puede ser un desafío en redes grandes.<br> • Mayor complejidad en la gestión de la seguridad y la privacidad.</td></tr></tbody></table>
+<p><strong>Tipos de sistemas distribuidos</strong></p>
+<ol>
+<li>Sistemas computacionales<!-- -->
+<ol>
+<li><strong>Distribuido tipo Cluster:</strong> Estos sistemas consisten en un conjunto de computadoras interconectadas que trabajan en conjunto como una sola unidad para realizar tareas específicas. Los clústeres se utilizan comúnmente para mejorar el rendimiento y la disponibilidad de aplicaciones, ya que si una máquina falla, las demás pueden continuar funcionando. Cada clúster consta de una colección de nodos de cómputo controlados, y se accede a ellos mediante un solo maestro.</li>
+<li><strong>Distribuido tipo Grid:</strong> Los sistemas distribuidos tipo grid son una infraestructura de cómputo que conecta y coordina recursos informáticos geográficamente dispersos. Estos sistemas constan de varias capas:<!-- -->
+<ol>
+<li><strong>Capa de Fabricación:</strong> Proporciona interfaces para recursos locales ubicados en un sitio específico. Suele ofrecer funciones para consultar el estado y las capacidades de un recurso.</li>
+<li><strong>Capa de Conectividad:</strong> Incluye protocolos de comunicación que respaldan transacciones que utilizan múltiples recursos. Facilita la comunicación y la coordinación entre los recursos distribuidos.</li>
+<li><strong>Capa de Recursos:</strong> Administra la gestión de recursos individuales, utilizando funciones de la capa de conectividad y fabricación para acceder a estos recursos.</li>
+<li><strong>Capa Colectiva:</strong> Se encarga de manejar el acceso a múltiples recursos. A diferencia de las capas anteriores, esta capa utiliza un conjunto estándar de protocolos relativamente pequeño para coordinar las operaciones de acceso a recursos distribuidos.</li>
+<li><strong>Capa de Aplicaciones:</strong> Las aplicaciones que operan dentro de una organización virtual aprovechan el sistema de cómputo basado en grid para ejecutar tareas de manera distribuida y escalable.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Sistemas distribuidos de información<!-- -->
+<ol>
+<li><strong>Sistemas de Procesamiento de Transacciones:</strong> Estos sistemas se utilizan para gestionar transacciones comerciales y financieras en entornos distribuidos. Permiten el registro, seguimiento y procesamiento de transacciones en tiempo real, garantizando la integridad de los datos y la consistencia de la información en sistemas distribuidos.</li>
+<li><strong>Integración de Aplicaciones Empresariales:</strong> La integración de aplicaciones empresariales se refiere a la interconexión de diferentes aplicaciones utilizadas en una organización para facilitar el intercambio de datos y la comunicación entre ellas. Estos sistemas permiten a las empresas optimizar procesos, mejorar la eficiencia y la toma de decisiones al garantizar que las aplicaciones puedan trabajar juntas de manera eficiente.</li>
+<li><strong>Sistemas Distribuidos de Información:</strong> Este tipo de sistemas se centra en la gestión y distribución de información en entornos distribuidos. Su objetivo es proporcionar acceso a datos y recursos de información de manera eficiente y confiable en redes dispersas geográficamente. Los sistemas distribuidos de información pueden abordar desafíos como el almacenamiento distribuido, la búsqueda de datos, la replicación de información y la seguridad de la información en contextos empresariales y científicos, entre otros</li>
+</ol>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="qué-es-la-escalabilidad">¿Qué es la escalabilidad?<a href="#qué-es-la-escalabilidad" class="hash-link" aria-label="Enlace directo al ¿Qué es la escalabilidad?" title="Enlace directo al ¿Qué es la escalabilidad?">​</a></h3>
+<p>La escalabilidad es la propiedad deseable de un sistema, una red o un proceso, que indica su habilidad para reaccionar y adaptarse sin perder calidad, o bien manejar el crecimiento continuo de trabajo de manera fluida, o bien para estar preparado para hacerse más grande sin perder calidad en los servicios ofrecidos.</p>
+<p>Existen distintas herramientas para trabajar o generar escalabilidad:</p>
+<ul>
+<li>Uso de software eficiente en tiempo y espacio.</li>
+<li>Patrones de diseño y de código para manejar eficientemente conexiones, <strong>threads</strong>, etc.</li>
+<li>Uso de cachés, consistencia eventual, replicación y balanceo de carga</li>
+</ul>
+<p><strong>Tipos de escalabilidad</strong></p>
+<ul>
+<li><strong>Respecto a su tamaño:</strong> Significa agregar recursos y usuarios fácilmente.</li>
+<li><strong>Respecto a su ubicación:</strong> Indica que los usuarios y los recursos pueden estar muy lejos entre sí.</li>
+<li><strong>Respecto a la administración:</strong> Esto significa que debe ser fácil de usar y manejar sin importar cuantas organizaciones compartan el mismo sistema distribuido.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="dimensiones-de-escalabilidad-en-un-sistema-distribuido">Dimensiones de escalabilidad en un sistema distribuido<a href="#dimensiones-de-escalabilidad-en-un-sistema-distribuido" class="hash-link" aria-label="Enlace directo al Dimensiones de escalabilidad en un sistema distribuido" title="Enlace directo al Dimensiones de escalabilidad en un sistema distribuido">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="crecimiento-vertical">Crecimiento vertical<a href="#crecimiento-vertical" class="hash-link" aria-label="Enlace directo al Crecimiento vertical" title="Enlace directo al Crecimiento vertical">​</a></h4>
+<p>Ocurre cuando se agregan más recursos a un nodo de la red. Escalar hacia arriba viene a significar una migración de todo el sistema a un nuevo hardware más potente y eficaz que el actual.</p>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>warning</div><div class="admonitionContent_BuS1"><p>Este modelo de escalabilidad tiene un aspecto negativo. Al aumentar la potencia con base en ampliaciones de hardware, llegará un momento que existirá algún tipo de limitación hardware. Además, a medida que se invierte en hardware de muy altas prestaciones, los costos se disparan tanto de forma temporal como económicos.</p></div></div>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="crecimiento-horizontal">Crecimiento horizontal<a href="#crecimiento-horizontal" class="hash-link" aria-label="Enlace directo al Crecimiento horizontal" title="Enlace directo al Crecimiento horizontal">​</a></h4>
+<p>Sucede cuando se añade un nodo en la red. La escalabilidad horizontal consiste en potenciar el rendimiento del sistema desde un aspecto de mejora global, a diferencia de aumentar la potencia de una única parte del mismo. Este tipo de escalabilidad se basa en la posibilidad de modular su funcionalidad. Por ello suele estar conformado por una agrupación de equipos que dan soporte a la funcionalidad completa. Normalmente, en una escalabilidad horizontal se añaden equipos para dar más potencia a la red de trabajo</p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Si se aplica un modelo de escalabilidad basado en la horizontalidad, no existen limitaciones de crecimiento a priori</p></div></div>
+<br>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>warning</div><div class="admonitionContent_BuS1"><p>Este modelo de escalabilidad supone una gran modificación en el diseño, lo que conlleva a un gran trabajo de diseño y re-implantación.</p></div></div>
+<p>Dentro de la escalabilidad existe un concepto importante por la trascendencia que tiene la gestión de los recursos a la hora de compartir y distribuir la carga de trabajo de los mismos en ambas direcciones tanto horizontal como vertical; por esta razón es fundamental conocer sobre el balance de carga.</p>
+<p><strong>Balanceador de carga</strong></p>
+<p>Se entiende este concepto, como la técnica usada para dividir el trabajo a compartir entre varios procesos, ordenadores, u otros recursos. Para evitar los cuellos de botella, el balance de la carga de trabajo se reparte de forma equitativa a través de un algoritmo que estudia las peticiones del sistema y las redirecciona a la mejor opción.</p>
+<p><strong>Balance de carga por hardware</strong></p>
+<p>Presenta las siguientes características:</p>
+<ul>
+<li>A partir de un algoritmo (Round Robin, LRU), examina las peticiones HTTP entrantes y selecciona el más apropiado entre los distintos clones del sistema.</li>
+<li>La selección del clon del sistema está basada en el algoritmo de sustitución y es aleatoria.</li>
+<li>Este último punto provoca problemas en el diseño, ya que no garantiza que si un usuario realiza varias peticiones sean atendidas por el mismo clon del sistema. Por lo tanto, no hay mantenimiento de la sesión del usuario en el servidor y condiciona el diseño.</li>
+<li>La sesión debe de ser mantenida por el desarrollador.</li>
+<li>Al ser un proceso hardware, es muy rápido.</li>
+</ul>
+<p><strong>Balance de carga por software</strong></p>
+<ul>
+<li>Examinan el paquete con respecto al protocolo HTTP para garantizar el mantenimiento de la sesión de usuario.</li>
+<li>Distintas peticiones del mismo usuario son servidas por el mismo clon del servidor.</li>
+<li>Más lentos que los balanceadores hardware.</li>
+<li>Normalmente son soluciones baratas.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="microservicios">Microservicios<a href="#microservicios" class="hash-link" aria-label="Enlace directo al Microservicios" title="Enlace directo al Microservicios">​</a></h2>
+<p>La arquitectura de microservicios es un método de desarrollo de aplicaciones software que funciona como un conjunto de pequeños servicios que se ejecutan de manera independiente y autónoma, proporcionando una funcionalidad de negocio completa. En ella, cada microservicio es un código que puede estar en un lenguaje de programación diferente, y que desempeña una función específica. Los microservicios se comunican entre sí a través de API, y cuentan con sistemas de almacenamiento propios, lo que evita la sobrecarga y caída de la aplicación.</p>
+<p><strong>Visión monolítica</strong></p>
+<!-- -->
+<p>La arquitectura monolítica es un enfoque tradicional de desarrollo de software en el que toda la aplicación se desarrolla como un único y gran código base. La visión central aquí es tener una aplicación cohesiva y fácil de mantener en un solo repositorio.</p>
+<ul>
+<li>Todos los componentes y funcionalidades de la aplicación están integrados en un solo código base.</li>
+<li>La aplicación se divide en módulos o capas, como la interfaz de usuario, la lógica de negocio y la base de datos, pero todos estos módulos están interconectados.</li>
+<li>Las actualizaciones o cambios en una parte de la aplicación pueden afectar a otras partes y requerir una implementación completa de la aplicación.</li>
+</ul>
+<p><strong>Visión de microservicios</strong></p>
+<p>La arquitectura de microservicios es un enfoque moderno en el que una aplicación se divide en pequeños servicios independientes que funcionan de manera autónoma. La visión principal aquí es lograr una mayor escalabilidad, flexibilidad y mantenibilidad.</p>
+<ul>
+<li>La aplicación se descompone en microservicios, que son componentes autónomos e independientes, cada uno con su propia lógica de negocio y base de datos.</li>
+<li>Los microservicios se comunican entre sí a través de API o protocolos específicos.</li>
+<li>Cada microservicio puede estar desarrollado en diferentes lenguajes de programación y tecnologías según las necesidades.</li>
+</ul>
+<!-- -->
+<table><thead><tr><th>Ventajas</th><th>Desventajas</th></tr></thead><tbody><tr><td><strong>Modularidad:</strong> al tratarse de servicios autónomos, se pueden desarrollar y desplegar de forma independiente. Además, un error en un servicio no debería afectar la capacidad de otros servicios para seguir trabajando según lo previsto.</td><td><strong>Alto consumo de memoria:</strong> al tener cada microservicio sus propios recursos y bases de datos, consumen más memoria y CPU.</td></tr><tr><td><strong>Escalabilidad:</strong> como es una aplicación modular, se puede escalar horizontalmente cada parte según sea necesario, aumentando el escalado de los módulos que tengan un procesamiento más intensivo.</td><td><strong>Inversión de tiempo inicial:</strong> al crear la arquitectura, se necesita más tiempo para poder fragmentar los distintos microservicios e implementar la comunicación entre ellos.</td></tr><tr><td><strong>Inversión de tiempo inicial:</strong> al crear la arquitectura, se necesita más tiempo para poder fragmentar los distintos microservicios e implementar la comunicación entre ellos.</td><td><strong>Complejidad en la gestión:</strong> si contamos con un gran número de microservicios, será más complicado controlar la gestión e integración de los mismos. Es necesario disponer de una centralización de trazas y herramientas avanzadas de procesamiento de información que permitan tener una visión general de todos los microservicios y orquesten el sistema.</td></tr><tr><td><strong>Rapidez de actuación:</strong> el reducido tamaño de los microservicios permite un desarrollo menos costoso, así como el uso de “contenedores de software” permite que el despliegue de la aplicación se pueda llevar a cabo rápidamente.</td><td><strong>Perfil de desarrollador:</strong> los microservicios requieren desarrolladores experimentados con un nivel muy alto de experiencia y un control exhaustivo de las versiones. Además de conocimiento sobre solución de problemas como latencia en la red o balanceo de cargas.</td></tr><tr><td><strong>Mantenimiento simple y barato:</strong> al poder hacerse mejoras de un solo módulo y no tener que intervenir en toda la estructura, el mantenimiento es más sencillo y barato que en otras arquitecturas.</td><td><strong>No uniformidad:</strong> aunque disponer de un equipo tecnológico diferente para cada uno de los servicios tiene sus ventajas, si no se gestiona correctamente, conducirá a un diseño y arquitectura de aplicación poco uniforme.</td></tr><tr><td><strong>Agilidad:</strong> se pueden utilizar funcionalidades típicas (autenticación, trazabilidad, etc.) que ya han sido desarrolladas por terceros, no hace falta que el desarrollador las cree de nuevo.</td><td><strong>Dificultad en la realización de pruebas:</strong> debido a que los componentes de la aplicación están distribuidos, las pruebas y test globales son más complicados de realizar.</td></tr><tr><td></td><td><strong>Coste de implantación alto:</strong> una arquitectura de microservicios puede suponer un alto coste de implantación debido a gastos en infraestructura y en pruebas distribuidas.</td></tr></tbody></table>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="la-arquitectura-de-los-microservicios">La arquitectura de los microservicios<a href="#la-arquitectura-de-los-microservicios" class="hash-link" aria-label="Enlace directo al La arquitectura de los microservicios" title="Enlace directo al La arquitectura de los microservicios">​</a></h3>
+<p>La mayor parte de las arquitecturas de microservicios tienen las siguientes características:</p>
+<p><strong>Los componentes son servicios:</strong> La principal manera de crear componentes es mediante la inserción de un botón que automáticamente por detrás, gestione la descomposición en servicios en lugar de bibliotecas. Los servicios son componentes separados que se comunican mediante mecanismos como los servicios web o los RPC en lugar de usar llamadas a funciones en memoria como hacen las bibliotecas.</p>
+<p><strong>Organizada en torno a las funcionalidades del negocio:</strong> El sistema se divide en distintos servicios donde cada uno está organizado en torno a una capacidad del negocio. Es muy importante limitar la responsabilidad de cada servicio. Cada servicio implementa toda la funcionalidad del negocio que agrupa desde la interfaz de usuario, la persistencia en el almacenamiento y cualquiera de las colaboraciones externas.</p>
+<p><strong>Productos, no proyectos:</strong> En esta arquitectura normalmente se sigue la idea de que un equipo debe estar a cargo de un componente (servicio).</p>
+<p><strong>Extremos inteligente:</strong> Las aplicaciones creadas desde microservicios pretenden ser tan disociadas y cohesivas como sea posible, ellas poseen su propia lógica de dominio y actúan como filtros en el clásico sentido <strong>UNIX</strong>.</p>
+<p><strong>Tener un gobierno descentralizado permite usar tecnologías que se adapten mejor a cada funcionalidad:</strong> Con el sistema con múltiples servicios colaborativos, podemos decidir utilizar diferentes lenguajes de programación y tecnologías dentro de cada servicio.</p>
+<p><strong>Gestión de datos descentralizada:</strong> Los microservicios prefieren dejar a cada servicio que gestione su propia base de datos, sean estas diferentes instancias de la misma tecnología de base de datos o sistemas de base de datos completamente diferentes.</p>
+<p><strong>Diseño tolerante a fallos:</strong> Las aplicaciones necesitan ser diseñadas de modo que puedan tolerar las fallas de los distintos servicios. Patrones más importantes para conseguir estabilidad que se usan en la arquitectura de microservicios:</p>
+<ul>
+<li>Reintento: Consiste en repetir una operación para la cual finalizó su tiempo de espera.</li>
+<li><strong>Encolar para reintentar</strong> la operación para ser realizada más tarde</li>
+<li><strong>Disyuntores:</strong> Funcionan de forma similar a los interruptores automáticos accionados por sobrecargas que hay en las instalaciones eléctricas. En el software existen para permitir que un subsistema ante una falla no destruya el sistema entero por sobrecarga y una vez que el peligro ha pasado pueda restablecerse.</li>
+<li><strong>Compartimentos estancos</strong> para contención de daños manteniéndolos aislados</li>
+</ul>
+<p><strong>Automatización de la infraestructura:</strong> La mayoría de los productos y sistemas desarrollados con el enfoque de
+microservicios han sido construidos por equipo que usan entrega continua y su precursor la integración continua.
+Para conseguir esto es necesario:</p>
+<ul>
+<li><strong>Automatizar todo el proceso</strong>, desde el chequeo del código, pruebas y despliegue.</li>
+<li><strong>Control de versiones y gestión de configuración.</strong> Todo el software tiene que estar versionado y poder gestionar las distintas configuraciones para conseguir la entrega continua.</li>
+<li><strong>Arquitectura adecuada.</strong> La arquitectura tiene que permitir realizar cambios sin que afecten al resto del sistema. La arquitectura de microservicios lo hace posible.</li>
+</ul>
+<p><strong>Diseño evolutivo.</strong> Cuando se divide el sistema en servicios hay que tener en cuenta que cada uno tiene que poder ser reemplazado o actualizado de forma independiente.</p>
+<p><strong>Seguridad de la arquitectura de microservicios</strong></p>
+<ul>
+<li>Los microservicios simplifican el monitoreo.</li>
+<li>Alivia algunos problemas de seguridad que surgen en aplicaciones monolíticas.</li>
+<li>Una brecha de seguridad podría ocurrir en una sección sin afectar otras áreas del proyecto</li>
+<li>Ofrecen resistencia ante ataques <strong>DDoS</strong>.</li>
+</ul>
+<p>Sin embargo, todavía existen desafíos al proteger aplicaciones de microservicios, que incluyen:</p>
+<ul>
+<li>Más áreas de red están abiertas a vulnerabilidades.</li>
+<li>Una menor coherencia general entre las actualizaciones de la aplicación permite más violaciones de seguridad.</li>
+<li>Hay una mayor área de ataque, a través de múltiples puertos API.</li>
+<li>Hay una falta de control de software de terceros.</li>
+<li>La seguridad debe mantenerse para cada servicio.</li>
+</ul>
+<p><strong>Despliegue de aplicaciones de microservicio</strong></p>
+<p>Existen 3 conceptos que facilitan el despliegue de aplicaciones de microservicios:</p>
+<ol>
+<li><strong>Contenedores:</strong> Los contenedores son una tecnología de virtualización a nivel de sistema operativo que permite empacar una aplicación y todas sus dependencias en una unidad única llamada <strong>&quot;contenedor&quot;</strong>. Estos contenedores son portátiles y pueden ejecutarse de manera consistente en cualquier entorno que admita la tecnología de contenedores, como <strong>Docker</strong>.</li>
+<li><strong>Orquestación:</strong> se refiere a la gestión automatizada y coordinación de múltiples componentes o servicios de una aplicación distribuida. En el mundo de los contenedores, la orquestación se utiliza para administrar y escalar contenedores de manera eficiente, gestionar el <strong>balanceo de carga</strong>, <strong>asegurar la alta disponibilidad</strong> y <strong>facilitar la implementación y actualización</strong> de aplicaciones en entornos de contenedores. <strong>Kubernetes</strong> es una de las herramientas de orquestación de contenedores más populares y ampliamente utilizadas.</li>
+<li><strong>Malla:</strong> Una malla de servicio es una capa de infraestructura que se utiliza para administrar la comunicación entre los diferentes componentes de una aplicación distribuida. Proporciona funciones como el <strong>descubrimiento de servicios</strong>, <strong>el equilibrio de carga</strong>, <strong>la seguridad</strong>, <strong>la monitorización</strong> y la <strong>gestión del tráfico</strong>, entre otras. Ejemplos de mallas de servicio populares son <strong>Istio</strong> y <strong>Linkerd</strong>.</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cómo-utilizar-los-microservicios">¿Cómo utilizar los microservicios?<a href="#cómo-utilizar-los-microservicios" class="hash-link" aria-label="Enlace directo al ¿Cómo utilizar los microservicios?" title="Enlace directo al ¿Cómo utilizar los microservicios?">​</a></h3>
+<p>Estos son los cinco elementos que un microservicio necesitará antes de que pueda utilizarse en una arquitectura de aplicación distribuida</p>
+<ol>
+<li><strong>Funcionalidad con un alcance adecuado.</strong> El primer elemento de un microservicio es definir lo que debe hacer. Una forma de definir el ámbito adecuado es particionar los servicios a lo largo de las líneas de funcionalidad lógica. Otro enfoque de alcance es reflejar la estructura de la organización de desarrollo. Un tercer enfoque es minimizar un servicio a la cantidad de código que podría ser reintroducido por el equipo en un período de dos semanas.</li>
+<li><strong>Preparación de una API.</strong> Una vez que descomponemos una aplicación en múltiples servicios que cooperan, ¿cómo deben hablar esos servicios entre sí? Normalmente, esto se hace con llamadas a API de servicios web REST, aunque también pueden utilizar otros mecanismos de transporte. Una buena idea es evitar saltar a la codificación de la API de forma inmediata. En su lugar es mejor hacer algún trabajo en papel o pizarra para definir lo que un servicio específico debe exponer para funcionar correctamente.</li>
+<li><strong>Gestión del tráfico.</strong> Desde la perspectiva del servicio de llamada, siempre debe realizar un seguimiento de sus llamadas y estar preparado para terminar si la respuesta toma demasiado tiempo. Desde la perspectiva del servicio llamado, el diseño de API debe incluir la posibilidad de enviar una respuesta que indique sobrecarga. Los servicios deben ser capaces también de generar y matar nuevas instancias de servicio según sea necesario para acomodar variaciones en la carga de tráfico.</li>
+<li><strong>Descarga de datos.</strong> Tener necesidad de una operación continua es muy diferente de lo que necesitan las aplicaciones tradicionales, que a menudo dejan de funcionar si falla la infraestructura subyacente. Para asegurarse de que los usuarios pueden seguir trabajando cuando falla una instancia, se pueden migrar datos específicos del usuario fuera de las instancias de servicio a un sistema compartido de almacenamiento redundante accesible desde todas las instancias de servicio. Otro enfoque de descarga de almacenamiento es insertar un sistema compartido de caché basado en memoria entre un servicio dado y el almacenamiento asociado con ese servicio.</li>
+<li>Monitorización. El sistema de monitorización de una aplicación basada en una arquitectura de microservicios debe permitir el cambio continuo de recursos, ser capaz de capturar datos de monitorización en una ubicación central y mostrar información que refleje la naturaleza con frecuencia cambiante de las aplicaciones de microservicios.</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="características-de-los-microservicios-en-distintos-lenguajes">Características de los microservicios en distintos lenguajes<a href="#características-de-los-microservicios-en-distintos-lenguajes" class="hash-link" aria-label="Enlace directo al Características de los microservicios en distintos lenguajes" title="Enlace directo al Características de los microservicios en distintos lenguajes">​</a></h3>
+<p><strong>Patrones de diseño</strong></p>
+<ul>
+<li><strong>Creacionales:</strong> Aquellos que tratan con las formas de crear instancias de objetos y cuyo objetivo es abstraer el proceso de instanciación y ocultar los detalles de cómo los objetos son creados o inicializados. En esta clase, se encuentran los siguientes:<!-- -->
+<ul>
+<li>Abstract factory</li>
+<li>Builder</li>
+<li>Factory method</li>
+<li>Prototype</li>
+<li>Singleton</li>
+</ul>
+</li>
+<li><strong>Estructurales:</strong> Aquellos que describen cómo las clases y objetos (simples o compuestos) pueden ser combinados para formar grandes estructuras y proporcionar nuevas funcionalidades. En esta clase, se encuentran los siguientes:<!-- -->
+<ul>
+<li>Adapter</li>
+<li>Bridge</li>
+<li>Composite</li>
+<li>Decorator</li>
+<li>Facade</li>
+<li>Flyweight</li>
+<li>Proxy</li>
+</ul>
+</li>
+<li><strong>Comportamiento:</strong> Aquellos que nos ayudan a definir la comunicación e iteración entre los objetos de un sistema. El propósito de este patrón es reducir el acoplamiento entre los objetos. En esta clase se encuentran los siguientes:<!-- -->
+<ul>
+<li>Chain of responsibility</li>
+<li>Command</li>
+<li>Interpreter</li>
+<li>Iterator</li>
+<li>Mediator</li>
+<li>Memento</li>
+<li>Observer</li>
+<li>State</li>
+<li>Strategy</li>
+<li>Template method</li>
+<li>Visitor</li>
+</ul>
+</li>
+<li>Otros:<!-- -->
+<ul>
+<li>Arquitectura en pizarra</li>
+<li>DAO: Data Access Object</li>
+<li>DTO: Data Transfer Object</li>
+<li>EDA: arquitectura dirigida por eventos</li>
+<li>Invocación implícita</li>
+<li>Objetos desnudos</li>
+<li>Programación por capas</li>
+<li>Peer-to-peer</li>
+<li>Pipeline</li>
+<li>SOA: arquitectura orientada a servicios</li>
+<li>Modelo/Vista/Controlador</li>
+<li>Modelo/Vista/Presentador</li>
+<li>Modelo/Vista/Presentador con Presentador del Modelo</li>
+<li>Modelo/Vista/Vista-Modelo</li>
+<li>Modelo/Vista/Presentador con Vista Pasiva</li>
+<li>Modelo/Vista/Presentador con Controlador Supervisor</li>
+</ul>
+</li>
+</ul>
+<p><strong>Lenguajes de programación, su arquitectura y características</strong></p>
+<p><strong>Docker</strong></p>
+<p>Docker es una plataforma de código abierto que se utiliza para desarrollar, implementar y ejecutar aplicaciones en contenedores. Los contenedores son entornos ligeros y portátiles que incluyen todo lo necesario para ejecutar una aplicación, como el código, las bibliotecas y las dependencias. Docker simplifica la gestión de aplicaciones al encapsularlas en contenedores, lo que facilita su despliegue en diferentes entornos, como servidores locales, nubes públicas o entornos de desarrollo.</p>
+<p>Para ejecutar contenedores, hay dos tipos de tiempos de ejecución:</p>
+<ul>
+<li>Los contenedores de Windows Server ofrecen aislamiento de aplicaciones a través de tecnología de aislamiento de proceso y de espacio de nombres. Un contenedor de Windows Server comparte el kernel con el host de contenedor y con todos los contenedores que se ejecutan en el host.</li>
+<li>Los contenedores de Hyper-V amplían el aislamiento que ofrecen los contenedores de Windows Server mediante la ejecución de cada contenedor en una máquina virtual altamente optimizada. En esta configuración, el kernel (núcleo) del host (anfitrión) del contenedor no se comparte con los contenedores de Hyper-V, lo que proporciona un mejor aislamiento.</li>
+</ul>
+<p>La aplicación consta de estos tipos de componentes:</p>
+<ul>
+<li>Componentes de presentación. Estos componentes son los responsables del control de la interfaz de usuario y el consumo de servicios remotos.</li>
+<li>Lógica de dominio o de negocios. Este componente es la lógica de dominio de la aplicación.</li>
+<li>Lógica de acceso a bases de datos. Este componente está formado por componentes de acceso a datos responsables de acceder a las bases de datos (SQL o NoSQL).</li>
+<li>Lógica de integración de aplicaciones. Este componente incluye un canal de mensajería basado en agentes de mensajes.</li>
+</ul></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Página del documento"><a class="pagination-nav__link pagination-nav__link--prev" href="/apuntes/docs/gestion-de-la-configuracion/resumen-de-software-configuration-management"><div class="pagination-nav__sublabel">Anterior</div><div class="pagination-nav__label">Resumen de Software Configuration Management</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/apuntes/docs/gestion-de-la-configuracion/resumen-de-testing"><div class="pagination-nav__sublabel">Siguiente</div><div class="pagination-nav__label">Resumen de Testing</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#introducción-a-distribución-de-servicios" class="table-of-contents__link toc-highlight">Introducción a distribución de servicios</a><ul><li><a href="#qué-es-este-tipo-de-modelo" class="table-of-contents__link toc-highlight">¿Qué es este tipo de modelo?</a></li><li><a href="#tipos-de-sistemas" class="table-of-contents__link toc-highlight">Tipos de sistemas</a></li><li><a href="#qué-es-la-escalabilidad" class="table-of-contents__link toc-highlight">¿Qué es la escalabilidad?</a></li><li><a href="#dimensiones-de-escalabilidad-en-un-sistema-distribuido" class="table-of-contents__link toc-highlight">Dimensiones de escalabilidad en un sistema distribuido</a></li></ul></li><li><a href="#microservicios" class="table-of-contents__link toc-highlight">Microservicios</a><ul><li><a href="#la-arquitectura-de-los-microservicios" class="table-of-contents__link toc-highlight">La arquitectura de los microservicios</a></li><li><a href="#cómo-utilizar-los-microservicios" class="table-of-contents__link toc-highlight">¿Cómo utilizar los microservicios?</a></li><li><a href="#características-de-los-microservicios-en-distintos-lenguajes" class="table-of-contents__link toc-highlight">Características de los microservicios en distintos lenguajes</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/apuntes/docs/intro">Tutorial</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://twitter.com/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/apuntes/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/facebook/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 My Project, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

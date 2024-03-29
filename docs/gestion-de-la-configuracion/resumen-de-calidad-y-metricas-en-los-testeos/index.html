@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="es" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-gestion-de-la-configuracion/resumen-de-calidad-y-metricas-en-los-testeos" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.1.1">
+<title data-rh="true">Resumen de Calidad y métricas en los testeos | Apuntes</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://TomasC753.github.io/apuntes/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://TomasC753.github.io/apuntes/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://TomasC753.github.io/apuntes/docs/gestion-de-la-configuracion/resumen-de-calidad-y-metricas-en-los-testeos"><meta data-rh="true" property="og:locale" content="es"><meta data-rh="true" name="docusaurus_locale" content="es"><meta data-rh="true" name="docsearch:language" content="es"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Resumen de Calidad y métricas en los testeos | Apuntes"><meta data-rh="true" name="description" content="Calidad de testeo"><meta data-rh="true" property="og:description" content="Calidad de testeo"><link data-rh="true" rel="icon" href="/apuntes/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://TomasC753.github.io/apuntes/docs/gestion-de-la-configuracion/resumen-de-calidad-y-metricas-en-los-testeos"><link data-rh="true" rel="alternate" href="https://TomasC753.github.io/apuntes/docs/gestion-de-la-configuracion/resumen-de-calidad-y-metricas-en-los-testeos" hreflang="es"><link data-rh="true" rel="alternate" href="https://TomasC753.github.io/apuntes/docs/gestion-de-la-configuracion/resumen-de-calidad-y-metricas-en-los-testeos" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/apuntes/blog/rss.xml" title="Apuntes RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/apuntes/blog/atom.xml" title="Apuntes Atom Feed">
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/apuntes/assets/css/styles.3c9760c5.css">
+<script src="/apuntes/assets/js/runtime~main.52b3405f.js" defer="defer"></script>
+<script src="/apuntes/assets/js/main.cf7d7b30.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Saltar al contenido principal"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Saltar al contenido principal</a></div><nav aria-label="Principal" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Alternar barra lateral" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/apuntes/"><div class="navbar__logo"><img src="/apuntes/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/apuntes/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Mis Apuntes</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/apuntes/docs/intro">Apuntes</a><a class="navbar__item navbar__link" href="/apuntes/blog">Blog</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/facebook/docusaurus" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-label="Cambiar entre modo oscuro y claro (actualmente modo claro)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Volver al principio" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs barra lateral" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/apuntes/docs/intro">Docusaurus Introducción</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/apuntes/docs/category/docusaurus---básico">Docusaurus - Básico</a><button aria-label="Expand sidebar category &#x27;Docusaurus - Básico&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/apuntes/docs/category/introducción-a-programación">Introducción a Programación</a><button aria-label="Expand sidebar category &#x27;Introducción a Programación&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/apuntes/docs/category/paradigmas-de-la-programación">Paradigmas de la Programación</a><button aria-label="Expand sidebar category &#x27;Paradigmas de la Programación&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" aria-expanded="true" href="/apuntes/docs/category/gestión-de-la-configuración">Gestión de la Configuración</a><button aria-label="Collapse sidebar category &#x27;Gestión de la Configuración&#x27;" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/apuntes/docs/gestion-de-la-configuracion/programa">Programa</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/apuntes/docs/gestion-de-la-configuracion/resumen-de-software-configuration-management">Resumen de Software Configuration Management</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/apuntes/docs/gestion-de-la-configuracion/resumen-de-modelos-de-sistemas-distribuidos">Resumen de Modelos de sistemas distribuidos</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/apuntes/docs/gestion-de-la-configuracion/resumen-de-testing">Resumen de Testing</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/apuntes/docs/gestion-de-la-configuracion/resumen-de-calidad-y-metricas-en-los-testeos">Resumen de Calidad y métricas en los testeos</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/apuntes/docs/category/diseño-de-sistemas-de-información">Diseño de sistemas de información</a><button aria-label="Expand sidebar category &#x27;Diseño de sistemas de información&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/apuntes/docs/category/integraciones-web">Integraciones Web</a><button aria-label="Expand sidebar category &#x27;Integraciones Web&#x27;" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Página de Inicio" class="breadcrumbs__link" href="/apuntes/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/apuntes/docs/category/gestión-de-la-configuración"><span itemprop="name">Gestión de la Configuración</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Resumen de Calidad y métricas en los testeos</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">En esta página</button></div><div class="theme-doc-markdown markdown"><h1>Resumen de Calidad y métricas en los testeos</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="calidad-de-testeo">Calidad de testeo<a href="#calidad-de-testeo" class="hash-link" aria-label="Enlace directo al Calidad de testeo" title="Enlace directo al Calidad de testeo">​</a></h2>
+<p>La calidad de software en el testeo se refiere al conjunto de acciones planificadas y sistemáticas necesarias para proporcionar la confianza adecuada de que un producto o servicio satisfará los requerimientos relativos a la calidad.</p>
+<p>Para <strong>asegurar la calidad del producto</strong> se debe:</p>
+<ul>
+<li>Documentar las políticas aplicables</li>
+<li>Contar con los medios necesarios para el aseguramiento de la calidad</li>
+<li>Disponer de los recursos suficientes para monitorizar la calidad</li>
+<li>Implementar procedimientos de verificación sistemática</li>
+<li>Monitorizar resultados</li>
+<li>Aprender de los demás</li>
+<li>Compartir experiencias</li>
+<li>Adaptarse a los medios disponibles</li>
+<li>Mantenerse actualizado en la materia de calidad</li>
+<li>Ampliación de miras</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="como-se-construye-un-proceso-de-control-de-calidad">Como se construye un proceso de control de calidad<a href="#como-se-construye-un-proceso-de-control-de-calidad" class="hash-link" aria-label="Enlace directo al Como se construye un proceso de control de calidad" title="Enlace directo al Como se construye un proceso de control de calidad">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="ventajas-de-construir-un-proceso-de-control-de-calidad">Ventajas de construir un proceso de control de calidad<a href="#ventajas-de-construir-un-proceso-de-control-de-calidad" class="hash-link" aria-label="Enlace directo al Ventajas de construir un proceso de control de calidad" title="Enlace directo al Ventajas de construir un proceso de control de calidad">​</a></h4>
+<ul>
+<li>Aumento de beneficios</li>
+<li>Aumento del numero de clientes</li>
+<li>Motivación del personal</li>
+<li>Fidelidad de los clientes</li>
+<li>Organización del trabajo</li>
+<li>Mejora de las relaciones con los clientes</li>
+<li>Reducción de costes debidos a la mala calidad</li>
+<li>Aumento de la cuota de mercado</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="partes-del-proceso-de-gestión">Partes del proceso de gestión<a href="#partes-del-proceso-de-gestión" class="hash-link" aria-label="Enlace directo al Partes del proceso de gestión" title="Enlace directo al Partes del proceso de gestión">​</a></h4>
+<ul>
+<li>“Estructura organizativa: departamento de calidad o
+responsable de la dirección de la empresa.</li>
+<li>Cómo se planifica la calidad.</li>
+<li>Los procesos de la organización.</li>
+<li>Recursos que la organización aplica a la calidad.</li>
+<li>Documentación</li>
+</ul>
+<p>Para construir un proceso de control de calidad de software, es necesario definir los parámetros, indicadores o criterios de medición que se utilizarán para evaluar la calidad del software. Estos criterios pueden incluir factores como la eficiencia, la fiabilidad, la usabilidad, la seguridad y la compatibilidad, entre otros. Una vez definidos los criterios, se deben establecer los procesos de control, que incluyen la selección del software que será controlado, la selección de las medidas que se aplicarán al objeto de control y la creación o determinación de los métodos de valoración de los indicadores. Además, se deben documentar las políticas y procedimientos aplicables, contar con los medios necesarios para el aseguramiento de la calidad y disponer de los recursos suficientes para monitorizar la calidad. De esta manera, se puede garantizar que el software cumpla con los estándares de calidad establecidos y que funcione correctamente sin defectos ni imperfecciones</p>
+<p>La calidad del software debe implementarse a lo largo de todo el ciclo de vida, debe correr paralela desde la planificación del producto hasta la fase de producción del mismo.</p>
+<p>Para ello se cuenta con una serie de ayudas, a través de distintas actividades para la implantación del control de calidad en el desarrollo de software</p>
+<ul>
+<li>Aplicación de metodología y técnicas de desarrollo</li>
+<li>Reutilización de procesos de revision formales</li>
+<li>Prueba del software</li>
+<li>Ajustes a los entandares de desarrollo</li>
+<li>Control de cambios, mediciones y recopilación de información</li>
+<li>Gestión de informes sobre el control de calidad</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="distintas-normas-internacionales-que-hablan-de-la-calidad-de-software">Distintas normas internacionales que hablan de la calidad de software<a href="#distintas-normas-internacionales-que-hablan-de-la-calidad-de-software" class="hash-link" aria-label="Enlace directo al Distintas normas internacionales que hablan de la calidad de software" title="Enlace directo al Distintas normas internacionales que hablan de la calidad de software">​</a></h3>
+<p>Una <strong>norma de calidad</strong>, es un documento aprobado por un organismo reconocido, que proporciona un conjunto de reglas o directrices diseñadas para conseguir un grado mas optimo de orden en el contexto de la calidad.</p>
+<p>La <strong>estandarización</strong> es toda actividad documentada que norma
+el comportamiento de un grupo de personas</p>
+<p><strong>Expectativas de los estándares:</strong></p>
+<ul>
+<li>Mejora de procesos de software acorde a los objetivos estratégicos</li>
+<li>Mejora de los productos</li>
+<li>Protección del cliente o usuario</li>
+<li>Protección de la organización (cultura de la organización y mejora continua)</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="organizaciones-internacionales-de-normalización">Organizaciones internacionales de normalización<a href="#organizaciones-internacionales-de-normalización" class="hash-link" aria-label="Enlace directo al Organizaciones internacionales de normalización" title="Enlace directo al Organizaciones internacionales de normalización">​</a></h4>
+<ul>
+<li>ISO 9000</li>
+<li>Tick IT (Inglaterra)</li>
+<li>CMMI (Estados Unidos)</li>
+<li>Bootstrap (Europa)</li>
+<li>ISO/SPICE (Australia)</li>
+</ul>
+<p>Los modelos de calidad de software también se clasifican de acuerdo con el enfoque de evaluación, ya sea a nivel de proceso, producto o calidad en uso.</p>
+<ul>
+<li><strong>Calidad a nivel de proceso:</strong> La calidad de un sistema de software debe ser programado y mantenido a lo largo de su ciclo de vida, sino la calidad de este se vera afectado</li>
+<li><strong>Calidad a nivel de producto:</strong> Este modelo esta centrado un verificar el cumplimiento de los criterios del producto</li>
+<li><strong>Calidad de uso:</strong> Se define como el conjunto de atributos relacionados con el aceptación por parte del usuario final y seguridad</li>
+</ul>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>warning</div><div class="admonitionContent_BuS1"><p>Los conceptos de <strong>&quot;usabilidad&quot;</strong> y <strong>&quot;calidad de uso&quot;</strong> son diferentes, siendo <strong>calidad de uso</strong> el concepto mas abarcador entre los dos.</p></div></div>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="modelos-a-nivel-de-proceso">Modelos a nivel de proceso<a href="#modelos-a-nivel-de-proceso" class="hash-link" aria-label="Enlace directo al Modelos a nivel de proceso" title="Enlace directo al Modelos a nivel de proceso">​</a></h4>
+<!-- -->
+<ol>
+<li>
+<p><strong>ITIL (Information Technology Infrastructure Library):</strong> ITIL es un conjunto de buenas prácticas para la gestión de servicios de tecnología de la información (TI). Se centra en la entrega de servicios de alta calidad a través de la planificación, el diseño, la implementación y la gestión de procesos de TI.</p>
+</li>
+<li>
+<p><strong>ISO/IEC 15504 (SPICE - Software Process Improvement and Capability Determination):</strong> Este estándar proporciona un marco para evaluar y mejorar los procesos de desarrollo y mantenimiento de software. Mide la capacidad de los procesos y establece niveles de madurez.</p>
+</li>
+<li>
+<p><strong>Bootstrap:</strong> Bootstrap es un modelo de proceso de software que se centra en la creación de procesos de desarrollo ágiles y efectivos para pequeñas empresas de software.</p>
+</li>
+<li>
+<p><strong>Dromey:</strong> Dromey es un modelo de calidad de software que se enfoca en la calidad de los datos y la información en los sistemas de software.</p>
+</li>
+<li>
+<p><strong>PSP (Personal Software Process) y TSP (Team Software Process):</strong> Estos modelos se centran en mejorar las habilidades y la productividad de los desarrolladores individuales y los equipos de desarrollo de software, respectivamente.</p>
+</li>
+<li>
+<p><strong>IEEE/ EIA 12207:</strong> Este estándar establece prácticas recomendadas para los procesos de ciclo de vida del software, desde la adquisición hasta el mantenimiento.</p>
+</li>
+<li>
+<p><strong>ISO 90003:</strong> Es una norma internacional que proporciona pautas para la aplicación de la norma ISO 9001 en el desarrollo de software y servicios relacionados.</p>
+</li>
+<li>
+<p><strong>CMMI (Capability Maturity Model Integration):</strong> CMMI es un modelo de mejora de procesos que ayuda a las organizaciones a evaluar y mejorar sus procesos de desarrollo y mantenimiento de software.</p>
+</li>
+<li>
+<p><strong>ISO/IEC 20000:</strong> Esta norma establece un conjunto de requisitos para la gestión de servicios de TI, incluyendo la gestión de servicios de software.</p>
+</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="modelos-a-nivel-de-producto">Modelos a nivel de producto<a href="#modelos-a-nivel-de-producto" class="hash-link" aria-label="Enlace directo al Modelos a nivel de producto" title="Enlace directo al Modelos a nivel de producto">​</a></h4>
+<ol>
+<li>
+<p><strong>McCall:</strong> El modelo McCall se centra en la calidad del producto de software y define factores de calidad como la corrección, la confiabilidad y la eficiencia.</p>
+</li>
+<li>
+<p><strong>GQM (Goal-Question-Metric):</strong> GQM es una metodología que ayuda a las organizaciones a establecer objetivos de calidad, formular preguntas relevantes y definir métricas para evaluar el rendimiento del proceso.</p>
+</li>
+<li>
+<p><strong>Boehm:</strong> El modelo Boehm se centra en la gestión de proyectos de software y propone un conjunto de factores de costo y esfuerzo.</p>
+</li>
+<li>
+<p><strong>Furbs (Functionality, Usability, Reliability, Performance, Supportability):</strong> Este modelo se enfoca en cinco atributos clave de calidad del software: funcionalidad, usabilidad, confiabilidad, rendimiento y capacidad de mantenimiento.</p>
+</li>
+<li>
+<p><strong>Gilb:</strong> Gilb es un enfoque de inspección de calidad de software que se centra en identificar y resolver problemas de calidad de manera temprana en el ciclo de desarrollo.</p>
+</li>
+<li>
+<p><strong>ISO 9126:</strong> Define un conjunto de características de calidad del software, como la funcionalidad, la fiabilidad y la usabilidad.</p>
+</li>
+<li>
+<p><strong>SQAE (Software Quality Assurance Engineering):</strong> Este modelo se centra en las actividades de aseguramiento de calidad en el proceso de desarrollo de software.</p>
+</li>
+<li>
+<p><strong>WebQEM (Web Quality Evaluation Model):</strong> Es un modelo diseñado específicamente para evaluar la calidad de los sitios web.</p>
+</li>
+<li>
+<p><strong>ISO 25000:</strong> Esta norma proporciona un conjunto de estándares para evaluar la calidad del software y los sistemas de software, incluyendo la serie SQuaRE (Software Product Quality Requirements and Evaluation).</p>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="métricas-de-los-testeos">Métricas de los testeos<a href="#métricas-de-los-testeos" class="hash-link" aria-label="Enlace directo al Métricas de los testeos" title="Enlace directo al Métricas de los testeos">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="que-son-las-métricas-de-calidad-de-software">Que son las métricas de calidad de software<a href="#que-son-las-métricas-de-calidad-de-software" class="hash-link" aria-label="Enlace directo al Que son las métricas de calidad de software" title="Enlace directo al Que son las métricas de calidad de software">​</a></h3>
+<p>El <strong>testing</strong> controla la incertidumbre y controla los riesgos dando mas información de aspecto <strong>cuantitativo</strong>.</p>
+<p>Las <strong>métricas de calidad de software</strong> permiten monitorizar un producto para determinar su nivel de calidad.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="importancia-de-las-métricas-de-testeo">Importancia de las métricas de testeo<a href="#importancia-de-las-métricas-de-testeo" class="hash-link" aria-label="Enlace directo al Importancia de las métricas de testeo" title="Enlace directo al Importancia de las métricas de testeo">​</a></h4>
+<ol>
+<li>
+<p><strong>Mejora de la calidad:</strong> Las métricas de testeo son fundamentales para mejorar la calidad del software. Estas métricas permiten medir y evaluar la calidad de los procesos de prueba y del producto en sí, lo que ayuda a identificar áreas de mejora y tomar medidas para corregir problemas.</p>
+</li>
+<li>
+<p><strong>Gestión eficiente:</strong> La cita &quot;Si algo no se puede medir, no se puede gestionar&quot; resalta la importancia de las métricas para la gestión de proyectos de desarrollo de software. Las métricas proporcionan datos concretos que permiten tomar decisiones informadas y gestionar de manera más eficiente los recursos, el tiempo y el costo.</p>
+</li>
+<li>
+<p><strong>Seguimiento del progreso:</strong> Las métricas de testeo permiten realizar un seguimiento del progreso de las pruebas a lo largo del ciclo de vida del desarrollo de software. Esto es esencial para evaluar si se están cumpliendo los objetivos y si se están utilizando de manera óptima los recursos.</p>
+</li>
+<li>
+<p><strong>Comunicación del progreso:</strong> En el entorno actual, es crucial no solo ejecutar pruebas, sino también comunicar el progreso a lo largo del ciclo de desarrollo. Las métricas se utilizan para informar a las partes interesadas y a los equipos ejecutivos sobre el estado de calidad del software.</p>
+</li>
+<li>
+<p><strong>Toma de decisiones:</strong> Las métricas se utilizan para tomar decisiones relacionadas con la calidad del software. Ayudan a identificar fortalezas y debilidades, evaluar la eficiencia y la productividad del equipo de control de calidad, y comprender las expectativas del cliente.</p>
+</li>
+<li>
+<p><strong>Evaluación de criterios de calidad:</strong> El texto menciona cinco criterios clave de calidad de software (exactitud, rendimiento, usabilidad, configuración y eficiencia) y señala que las métricas son esenciales para evaluar el cumplimiento de estos criterios. Las métricas proporcionan una forma objetiva de medir y evaluar la calidad en cada uno de estos aspectos.</p>
+</li>
+</ol>
+<p>En resumen, las métricas de testeo son esenciales para evaluar, gestionar y mejorar la calidad del software a lo largo de su ciclo de vida de desarrollo. Ayudan a tomar decisiones informadas, comunicar el progreso y asegurar que el software cumpla con los criterios de calidad establecidos.</p>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>warning</div><div class="admonitionContent_BuS1"><p>A la hora de centrarse en la solución en si, existen algunas métricas de calidad de software imprescindibles, como las que tienen que ver con los cinco siguientes criterios:</p></div></div>
+<ol>
+<li><strong>Métricas de exactitud:</strong> Intentan aportar información sobre la validez y precisión del software y su estructura, incluyendo la etapa de despliegue, pero también la de pruebas y la función de mantenimiento.</li>
+<li><strong>Métricas de rendimiento:</strong> A través de ellas se consigue medir el desempeño del software, tanto de cada uno de sus módulos como del sistema completo</li>
+<li><strong>Métricas de usabilidad:</strong> Buscan determinar si la solución es intuitiva y <strong>user-friendly</strong>.</li>
+<li><strong>Métricas de configuración:</strong> Las limitaciones, el estilo de código y todos los datos relativos al desarrollo y cualidades del producto se verán evaluados en base a esta métrica</li>
+<li><strong>Métricas de eficiencia:</strong> Minimización de latencias, velocidad de respuesta, capacidad, es un enfoque similar al de la productividad pero con un matiz un poco distinto, que añadido a aquel, aporta una visión mucho más completa de la solución</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cual-es-el-objetivo-de-las-métricas-de-calidad">Cual es el objetivo de las métricas de calidad<a href="#cual-es-el-objetivo-de-las-métricas-de-calidad" class="hash-link" aria-label="Enlace directo al Cual es el objetivo de las métricas de calidad" title="Enlace directo al Cual es el objetivo de las métricas de calidad">​</a></h3>
+<p>Cuando se trata de métricas de software en cuanto a los objetivos que persiguen, pueden clasificarse en cuatro grandes categorías, estas son:</p>
+<ol>
+<li>Productividad del desarrollador</li>
+<li>Rendimiento del software</li>
+<li>Defectos y seguridad</li>
+<li>Experiencia de usuario</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="cómo-se-aplican-las-métricas-de-software">Cómo se aplican las métricas de software<a href="#cómo-se-aplican-las-métricas-de-software" class="hash-link" aria-label="Enlace directo al Cómo se aplican las métricas de software" title="Enlace directo al Cómo se aplican las métricas de software">​</a></h4>
+<ol>
+<li><strong>Métricas de productividad del desarrollador</strong></li>
+</ol>
+<p>Las métricas de productividad permiten a los gerentes de desarrollo ejecutar mejor los proyectos. Tabule una combinación de estas métricas de software para medir qué tan avanzado está un proyecto, los niveles de productividad del desarrollador, la cantidad de tiempo de desarrollo adicional necesario y más.</p>
+<ul>
+<li><strong>Tiempo de entrega (lead time):</strong> tiempo que tarda algo de principio a fin</li>
+<li><strong>Cantidad de código:</strong> Los equipos de desarrollo pueden mirar esta métrica de software, también llamada miles de líneas de código (KLOC), para determinar el tamaño de una aplicación
+::: warning
+tenga en cuenta que más código no siempre hace que el código sea eficiente o efectivo, lo que puede significar más trabajo de refactorización más adelante.
+:::</li>
+<li><strong>Trabajo en curso (WIP):</strong> Un equipo puede expresar WIP en un gráfico de quemado (burn down). estos gráficos muestran cuánto trabajo ha terminado el equipo y la cantidad de trabajo que queda por hacer</li>
+<li><strong>Velocidad ágil:</strong> La velocidad ágil es una estimación de qué tan productivo será el equipo en un solo <strong>sprint</strong> (cuadro de tiempo).</li>
+<li><strong>Tasa de éxito de la meta del sprint:</strong> Esta métrica de software calcula el porcentaje de elementos que completó el equipo de desarrollo en el <strong>backlog</strong> (reserva) del <strong>sprint</strong></li>
+<li><strong>Número de versiones de software:</strong> Con este <strong>KPI</strong>, los equipos pueden realizar un seguimiento de la frecuencia con la que lanzan software, ya sea mensual, semanal, diaria, por hora o en cualquier otro período de tiempo, y si esa cadencia finalmente ofrece suficiente valor comercial.</li>
+</ul>
+<ol start="2">
+<li><strong>Métricas de rendimiento del software</strong></li>
+</ol>
+<p>El rendimiento del software se refiere a medidas <strong>cuantitativas</strong> del comportamiento de un sistema de software.
+<strong>Aspectos del desempeño del software</strong>. Las pruebas de
+rendimiento pueden evaluar las siguientes características de una aplicación:</p>
+<ul>
+<li>Escalabilidad</li>
+<li>Estabilidad</li>
+<li>Capacidad de respuesta</li>
+<li>Velocidad</li>
+<li>Disponibilidad</li>
+</ul>
+<p>Otras expresiones importantes de métricas de rendimiento del software incluyen las siguientes.</p>
+<ul>
+<li><strong>Rendimiento (throughput):</strong> El rendimiento es la cantidad de unidades de datos que procesa un sistema en un cierto período de tiempo.</li>
+<li><strong>Tiempo de respuesta:</strong> mide cuánto tiempo tarda un sistema en responder a una consulta o demanda.</li>
+<li><strong>Fiabilidad, disponibilidad y capacidad de servicio (RAS):</strong> RAS se refiere a la capacidad del software para cumplir constantemente con sus especificaciones; cuánto tiempo funciona en relación con la cantidad esperada; y con qué facilidad se puede reparar o mantener.</li>
+</ul>
+<ol start="3">
+<li><strong>Métricas de defectos</strong></li>
+</ol>
+<p>Los equipos de desarrollo deben comprender cómo fallan las
+aplicaciones para poder construirlas mejor. Estas métricas de desarrollo de software evalúan defectos y vulnerabilidades.</p>
+<ul>
+<li><strong>Densidad de defectos:</strong> A nivel de código, los desarrolladores pueden tabular el número de defectos por <strong>KLOC</strong> para evaluar la frecuencia de los defectos.</li>
+<li><strong>Cobertura de código:</strong> Esta es la proporción de código fuente que cubren las pruebas automatizadas.</li>
+<li><strong>Porcentaje de detección de defectos:</strong> Esta métrica es una proporción de la cantidad de defectos encontrados antes de los lanzamientos de software en comparación con el número encontrado después del lanzamiento.</li>
+<li><strong>Deuda técnica:</strong> La deuda técnica es una metáfora que refleja el esfuerzo a largo plazo, así como los costos temporales y financieros, de los desarrolladores que no abordan un problema de desarrollo cuando surge por primera vez.</li>
+<li><strong>Moral como métrica:</strong> Trata la felicidad de los empleados o del equipo como otro indicador útil de la productividad y el éxito del equipo.</li>
+<li><strong>Vulnerabilidades de seguridad:</strong> Identifican las debilidades de seguridad en una aplicación.</li>
+<li><strong>Incidentes de seguridad reales:</strong>  Este <strong>KPI</strong> cuenta la cantidad de veces que un <strong>hacker</strong> aprovecha una vulnerabilidad en el software.</li>
+<li><strong>Tiempo medio de detección:</strong> El tiempo medio de detección es un promedio que indica cuánto tiempo tarda un equipo en notar un problema o error.</li>
+<li><strong>Tiempo medio entre fallos:</strong> Esta métrica es un cálculo de qué tan común es que un programa falle.</li>
+<li><strong>Tiempo medio de reparación:</strong> El tiempo medio de reparación es el promedio que representa la rapidez con que un equipo aborda las fallas.</li>
+</ul>
+<ol start="4">
+<li><strong>Métricas de usabilidad y UX</strong></li>
+</ol>
+<p>Las mediciones de UX suelen ser cualitativas
+y pueden incluir las respuestas emocionales o corporales de los usuarios, como cuánto confían en el software y cómo se mueven sus ojos a través de una interfaz de usuario.</p>
+<ul>
+<li><strong>Métricas de usabilidad:</strong> mide qué tan bien el software permite a los clientes alcanzar sus objetivos. La usabilidad se puede dividir en componentes más pequeños, como los siguientes:<!-- -->
+<ul>
+<li>Facilidad de descubrimiento</li>
+<li>Eficiencia</li>
+<li>Memorabilidad</li>
+<li>Facilidad de aprendizaje</li>
+<li>Satisfacción</li>
+<li>Accesibilidad, particularmente accesibilidad digita</li>
+</ul>
+</li>
+<li><strong>Net Promoter Score (NPS):</strong> Esta métrica de software refleja la voluntad de los clientes de recomendar una aplicación a otros</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="importancia-de-las-métricas-de-testeo-1">Importancia de las métricas de testeo<a href="#importancia-de-las-métricas-de-testeo-1" class="hash-link" aria-label="Enlace directo al Importancia de las métricas de testeo" title="Enlace directo al Importancia de las métricas de testeo">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="como-se-aplican-las-métricas-de-software">Como se aplican las métricas de software<a href="#como-se-aplican-las-métricas-de-software" class="hash-link" aria-label="Enlace directo al Como se aplican las métricas de software" title="Enlace directo al Como se aplican las métricas de software">​</a></h3></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Página del documento"><a class="pagination-nav__link pagination-nav__link--prev" href="/apuntes/docs/gestion-de-la-configuracion/resumen-de-testing"><div class="pagination-nav__sublabel">Anterior</div><div class="pagination-nav__label">Resumen de Testing</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/apuntes/docs/category/diseño-de-sistemas-de-información"><div class="pagination-nav__sublabel">Siguiente</div><div class="pagination-nav__label">Diseño de sistemas de información</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#calidad-de-testeo" class="table-of-contents__link toc-highlight">Calidad de testeo</a><ul><li><a href="#como-se-construye-un-proceso-de-control-de-calidad" class="table-of-contents__link toc-highlight">Como se construye un proceso de control de calidad</a></li><li><a href="#distintas-normas-internacionales-que-hablan-de-la-calidad-de-software" class="table-of-contents__link toc-highlight">Distintas normas internacionales que hablan de la calidad de software</a></li></ul></li><li><a href="#métricas-de-los-testeos" class="table-of-contents__link toc-highlight">Métricas de los testeos</a><ul><li><a href="#que-son-las-métricas-de-calidad-de-software" class="table-of-contents__link toc-highlight">Que son las métricas de calidad de software</a></li><li><a href="#cual-es-el-objetivo-de-las-métricas-de-calidad" class="table-of-contents__link toc-highlight">Cual es el objetivo de las métricas de calidad</a></li><li><a href="#importancia-de-las-métricas-de-testeo-1" class="table-of-contents__link toc-highlight">Importancia de las métricas de testeo</a></li><li><a href="#como-se-aplican-las-métricas-de-software" class="table-of-contents__link toc-highlight">Como se aplican las métricas de software</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/apuntes/docs/intro">Tutorial</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://twitter.com/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/apuntes/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/facebook/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 My Project, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
