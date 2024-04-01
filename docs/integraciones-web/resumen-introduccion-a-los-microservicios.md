@@ -4,7 +4,7 @@
 
 ### Tema 1. Historia de los microservicios
 
-Aparecen con la necesidad d crear sistemas que sean fácilmente escalables y que impliquen un nivel menor de complejidad en cuanto a gestión de proyectos.
+Aparecen con la necesidad de crear sistemas que sean fácilmente escalables y que impliquen un nivel menor de complejidad en cuanto a gestión de proyectos.
 
 Hasta su popularización los desarrollos eran grandes **sistemas monolíticos** que ha medida que crecían su complejidad se hacia mucho mas grande y por ende eran costosos y difíciles de mantener. La solución consistió en distribuir el código respecto a las funciones que tenían dichos sistemas en sistemas mas pequeños, lo que permitió distribuir la carga y "know how" de las funcionalidades en grupos especializados.
 
@@ -23,15 +23,15 @@ Hasta su popularización los desarrollos eran grandes **sistemas monolíticos** 
 
 #### Ventaja de los microservicios
 
-- **Escalabilidad:** Dada su independencia, los microservicios son fácilmente escalables, ya que un cambio sobre no afectara a los otros.
+- **Escalabilidad:** Dada su independencia, los microservicios son fácilmente escalables, ya que un cambio sobre uno no afectara a los otros.
 - **Modularidad:** Los servicios son módulos independientes que pueden acoplarse o quitarse dependiendo de las necesidades del sistema.
-- **Eficacia:** Los servicios son mantenidos por equipos especializados en el mismo, debido a su baja complejidad los miembros pueden capacitarse rápidamente para el mantenimiento de este.
+- **Eficacia:** Los servicios son mantenidos por equipos especializados en el mismo. Debido a su baja complejidad los miembros pueden capacitarse rápidamente para el mantenimiento de este.
 - **Independencia Técnica:** Gracias a su independencia y a la comunicación por métodos **HTTP**, los módulos pueden estar desarrollados con un lenguaje diferente uno del otro, y a un asi el sistema seguir funcionando correctamente.
 - **Fácilmente integrable:** Al contar con los métodos HTTP para el intercambio de información, tener una API externa vuelve al sistema fácilmente integrable para cualquier externo.
 
 ### Tema 2. SOAP y REST
 
-**SOAP** (**Simple Object Access Protocol** o protocolo de acceso a objetos simples) y **REST** (**Representational State Transfer** o transferencia de estado representacional) son los dos enfoques distintos mas usados para transmitir datos de manera online permitiendo integrar diferentes sistemas o componentes de los mismo. Se valen del uso de estándares para convertir una integración en interoperable.
+**SOAP** (**Simple Object Access Protocol** o protocolo de acceso a objetos simples) y **REST** (**Representational State Transfer** o transferencia de estado representacional) son los dos enfoques distintos mas usados para transmitir datos de manera online permitiendo integrar diferentes sistemas o componentes de los mismos. Se valen del uso de estándares para convertir una integración en interoperable.
 
 La diferencia entre estos dos esta en que **SOAP** es un protocolo oficial mantenido por el consorcio **World Wide Web** (**W3C**), mientras que **REST** es un conjunto de principios de arquitectura.
 
@@ -118,7 +118,7 @@ Es importante destacar que pueden existir diversos tipos de errores, incluso var
 
 #### SOAPUI
 **SOAPUI** es una herramienta de prueba de servicios web ampliamente utilizada para probar, desarrollar y simular servicios web SOAP y RESTful.
-1. Interfaz Gráfica de Usuario (GUI) Amigable: SOAPUI proporciona una interfaz gráfica de usuario intuitiva que facilita la creación, edición y ejecución de pruebas de servicios web.
+1. **Interfaz Gráfica de Usuario (GUI) Amigable:** SOAPUI proporciona una interfaz gráfica de usuario intuitiva que facilita la creación, edición y ejecución de pruebas de servicios web.
 2. **Soporte para Protocolos:** Soporta tanto el protocolo SOAP (Simple Object Access Protocol) como REST (Representational State Transfer), lo que permite probar una variedad de servicios web.
 3. **Creación de Pruebas Funcionales:** Permite a los usuarios crear pruebas funcionales mediante la creación de solicitudes HTTP o SOAP específicas y la definición de las aserciones para verificar las respuestas.
 4. **Pruebas de Carga y Rendimiento:** SOAPUI permite la creación de pruebas de carga y rendimiento para evaluar el rendimiento de los servicios web bajo diferentes cargas y condiciones.
