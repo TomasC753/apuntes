@@ -48,7 +48,7 @@ Otras formas de autenticación son:
 - **Header:** Los encabezados son campos que brindan información adicional entre una comunicación HTTP de cliente y servidor. Tienen un formato de par clave-valor y se pueden adjuntar tanto a una solicitud como a una respuesta. La autorización, el tipo de contenido y las cookies son ejemplos de metadatos que se pueden proporcionar en los encabezados HTTP.
 - **Body:** Es util es las solicitudes PUT/PATCH/POST, dado que permite indicarle al servidor qué es lo que se debe agregar al endpoint al cual se apunta.
 - **Pre-request script:** Permite ejecutar **javaScript** antes de que se ejecute una solicitud. Estos scrips sirven cuando se están corriendo varias solicitudes distintas en un misma colección, cuando se quiere que estas se alimenten de los valores de la solicitud inmediatamente anterior a la ejecutada.
-- **Test:** Mediante distintos de scrips de **javaScript** se puede pedir a Postman que ejecute diferentes test sobre dicha solicitud y no devuelva su respuesta.
+- **Test:** Mediante distintos de scripts de **javaScript** se puede pedir a Postman que ejecute diferentes test sobre dicha solicitud y no devuelva su respuesta.
 - **Settings:** Aquí se puede configurar el comportamiento de Postman respecto de las solicitudes. Mayormente sobre cuestiones de seguridad y conexión con la API.
 
 #### Consola de Postman
@@ -240,3 +240,84 @@ Otra utilidad que trae adjunta Postman para este tipo de test son los llamados *
 Los ***Collection Runner*** ejecutan automáticamente una serie de solicitudes que hay dentro de una solicitud. Se pueden ejecutar 2 o mas solicitudes de distinto tipo de forma seguida o se puede ejecutar una sola solicitud para distintos elementos.
 
 Por ejemplo, se le puede pedir al "Collection Runner" que repita una solicitud $$X$$ tantas veces como sea necesario de acuerdo con la $$n$$ cantidad de objetos dentro de esa variable, es decir, iterar.
+
+Continuando con Trello, se puede crear una variable contenedora de los IDs de las tarjetas de un board e iterar sobre esta. Para recorrer los IDs de la tarjetas se le puede dar a ***Collection Runner*** archivos JSON o .CVS para que los lea.
+
+Siendo esta la tercera experiencia, los pasos para realizarla son:
+
+1. Crear una nueva colección para probar el ***Collection Runner***.
+2. Preparar una request de tipo ***GET*** con un URL similar a esta **https://trello.com/1/boards/{{boardID}}/cards/{{id}}?key={{key}}&token={{token}}**, en este caso `{{id}}` es una variable que se va proporcionar en el ***Collection Runner***.
+3. Crear un nuevo runner con la combinación de teclas `Ctrl + Shift + R` y arrastrar la request a la sección “Run order”.
+4. En data seleccionar un archivo JSON o .CVS con las IDs de las tarjetas. En este caso usara un JSON con el siguiente formato:
+
+```json
+[
+  {
+    "id": "660b7b470417fb243edd6d4e"
+  },
+  {
+    "id": "660e001ebf88255378c62681"
+  },
+  {
+    "id": "660e00231e837caa6505ca21"
+  }
+]
+```
+
+:::note
+📢 Tiene que observarse como es que cada objeto del arreglo posee una propiedad llamada “***id***”, esta es la que reemplazara la variable `{{id}}` en la URL del request.
+:::
+
+1. Presionar el botón “***Run Collection Runner Test***“ y esperar a que se ejecuten las request.
+
+### Tema 3. Descubriendo la consola de Postman
+
+En la consola se pueden ver detalles de respuesta de una solicitud, como los parámetros devueltos, headers, permisos de conexión, tiempo y el response body de la petición.
+
+La consola de Postman es accesible a través de la combinación de teclas `Alt + Ctrl + C` .
+
+**¿Qué hace tan importante a la consola?** Entre muchas cosas, el hecho de poder especificar la devolución de información que se quiere ver sin traer todo el body de respuesta cuando solo se quiere obtener un determinado numero de datos. Por ejemplo:
+
+```javascript
+console.log("Nombre de la tarjeta: " + pm.response.json().name);
+```
+
+### Tema 4. Respuestas customizadas
+
+Suponiendo que se recibe un JSON así:
+
+```json
+{
+  "list": [
+    {
+      "orderId": "73422101",
+      "creationDate": "2022-02-24T02:59:27.0000000+00:00",
+      "clientName": "Tomas Fanta",
+      "totalValue": 1705000.0
+    },
+    {
+      "orderId": "73422101",
+      "creationDate": "2022-02-24T02:45:31.0000000+00:00",
+      "clientName": "Esteban Quito",
+      "totalValue": 1705000.0
+    }
+  ]
+}
+```
+
+Y se quiero recuperar el dato de “***clientName***” igual a Esteban Quito, se puede acceder a el conociendo su índice en la lista, en este caso 1 (ya que se empieza a contar desde 0). Para obtener su nombre basta con escribir el código:
+
+```javascript
+console.log(pm.response.json()[1].clientName);
+```
+
+Sin embargo, considerando un situación real donde en una respuesta JSON se tienen miles de datos y no sabemos el índice del objetivo, se puede hacer lo siguiente. Suponiendo que se quiere saber cuantas veces hizo Tomas Fanta un pedido, se puede hacer uso del ciclo ***For*** para recorrer todos los datos de la respuesta y ejecutar una función. Por ejemplo:
+
+```javascript
+ let lista = pm.response.json().list;
+ for(let i = 0; i < lista.length; i++) {
+	 pm.expect(lista[i].clientName).to.eql("Tomas Fanta");
+ }
+```
+
+Este código aplicara un test sobre cada elemento en la lista para verificar que el campo “***clientName***” es igual a “Tomas Fanta”. Si el campo y “Tomas Fanta” no son iguales, el test fallara y si son iguales pasara el test. La cantidad test correctos indicara la cantidad de pedido que hizo Tomas Fanta.
